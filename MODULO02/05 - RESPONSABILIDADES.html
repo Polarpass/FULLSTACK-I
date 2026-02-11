@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Backend en Microservicios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1 class="infographic-title animate-in">
+                <i class="fas fa-server"></i> Backend en Microservicios
+            </h1>
+            <p class="infographic-subtitle animate-in delay-1">
+                Las responsabilidades clave del desarrollador backend en arquitectura de microservicios
+            </p>
+        </header>
+        
+        <div class="infographic-content">
+            <!-- Tarjeta 1: Introducción -->
+            <div class="info-card animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h2 class="card-title">Backend en Microservicios</h2>
+                <div class="card-content">
+                    <p>En arquitectura de microservicios, el desarrollador backend tiene responsabilidades especializadas para crear y mantener servicios <span class="highlight">independientes, escalables y resilientes</span>.</p>
+                    
+                    <div class="backend-visual">
+                        <div class="service-cluster">
+                            <div class="service-node service-db">
+                                <i class="fas fa-database fa-2x"></i>
+                                <small>Base de Datos</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-node service-api">
+                                <i class="fas fa-exchange-alt fa-2x"></i>
+                                <small>API Service</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-node service-auth">
+                                <i class="fas fa-shield-alt fa-2x"></i>
+                                <small>Auth Service</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-node service-logic">
+                                <i class="fas fa-cogs fa-2x"></i>
+                                <small>Business Logic</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-node service-cache">
+                                <i class="fas fa-bolt fa-2x"></i>
+                                <small>Cache Service</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">Cada servicio es independiente</div>
+                        <p>Cada microservicio backend tiene su propia base de datos, logica de negocio y puede ser desplegado independientemente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2: Responsabilidades principales -->
+            <div class="comparison-container animate-in delay-2">
+                <h2 class="comparison-title">
+                    <i class="fas fa-tasks"></i> Responsabilidades del Backend Developer
+                </h2>
+                
+                <div class="responsibility-grid">
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Diseno y Arquitectura</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Definir microservicios independientes</div>
+                            <div class="sub-item">Modelar bases de datos optimizadas</div>
+                            <div class="sub-item">Establecer comunicacion entre servicios</div>
+                            <div class="sub-item">Planificar escalabilidad</div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Desarrollo e Implementacion</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Escribir codigo limpio y eficiente</div>
+                            <div class="sub-item">Implementar APIs RESTful</div>
+                            <div class="sub-item">Crear pruebas unitarias e integracion</div>
+                            <div class="sub-item">Configurar CI/CD pipelines</div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Mantenimiento y Monitorizacion</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Optimizar rendimiento y latencia</div>
+                            <div class="sub-item">Configurar logging y monitoreo</div>
+                            <div class="sub-item">Escalar servicios horizontalmente</div>
+                            <div class="sub-item">Detectar y resolver problemas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Seguridad</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Implementar autenticacion</div>
+                            <div class="sub-item">Gestionar autorizacion y permisos</div>
+                            <div class="sub-item">Proteger datos sensibles</div>
+                            <div class="sub-item">Manejar secretos y credenciales</div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Colaboracion</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Documentar APIs y arquitectura</div>
+                            <div class="sub-item">Trabajar con equipos frontend</div>
+                            <div class="sub-item">Coordinar con equipo DevOps</div>
+                            <div class="sub-item">Comunicar con stakeholders</div>
+                        </div>
+                    </div>
+                    
+                    <div class="responsibility-card">
+                        <div class="responsibility-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-center mb-2">Gestion de Datos</h3>
+                        <div class="sub-responsibility">
+                            <div class="sub-item">Disenar esquemas de bases de datos</div>
+                            <div class="sub-item">Optimizar consultas SQL/NoSQL</div>
+                            <div class="sub-item">Implementar caching</div>
+                            <div class="sub-item">Manejar migraciones de datos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3: Flujo de trabajo -->
+            <div class="info-card card-2 animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h2 class="card-title">Flujo de Trabajo en Microservicios</h2>
+                <div class="card-content">
+                    <p>El ciclo de vida de un microservicio backend:</p>
+                    
+                    <div class="microservice-workflow">
+                        <div class="workflow-step">
+                            <div class="step-circle">1</div>
+                            <div>Diseno</div>
+                            <small>Arquitectura y planificacion</small>
+                        </div>
+                        
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-circle">2</div>
+                            <div>Desarrollo</div>
+                            <small>Codigo y pruebas</small>
+                        </div>
+                        
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-circle">3</div>
+                            <div>Despliegue</div>
+                            <small>CI/CD pipeline</small>
+                        </div>
+                        
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-circle">4</div>
+                            <div>Monitorizacion</div>
+                            <small>Rendimiento y logs</small>
+                        </div>
+                        
+                        <div class="step-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        
+                        <div class="workflow-step">
+                            <div class="step-circle">5</div>
+                            <div>Escalamiento</div>
+                            <small>Horizontal y vertical</small>
+                        </div>
+                    </div>
+                    
+                    <div class="rest-example mt-3">
+                        <span class="rest-verb">POST</span> <span class="rest-url">/api/usuarios</span><br>
+                        <span class="rest-status">201 Created</span><br>
+                        {<br>
+                        &nbsp;&nbsp;"id": "123",<br>
+                        &nbsp;&nbsp;"nombre": "usuario_nuevo",<br>
+                        &nbsp;&nbsp;"email": "usuario@ejemplo.com",<br>
+                        &nbsp;&nbsp;"_links": {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"self": "/api/usuarios/123",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;"pedidos": "/api/usuarios/123/pedidos"<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    
+                    <p class="mt-2"><i class="fas fa-lightbulb"></i> <strong>Cada microservicio debe:</strong></p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-check"></i> Tener responsabilidad unica</li>
+                        <li><i class="fas fa-check"></i> Comunicarse via APIs</li>
+                        <li><i class="fas fa-check"></i> Ser desplegable independientemente</li>
+                        <li><i class="fas fa-check"></i> Escalar segun su carga</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4: Seguridad en Microservicios -->
+            <div class="info-card card-3 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h2 class="card-title">Seguridad en Backend Microservicios</h2>
+                <div class="card-content">
+                    <p>La seguridad es critica en arquitectura de microservicios debido a la mayor superficie de ataque:</p>
+                    
+                    <div class="security-grid">
+                        <div class="security-item">
+                            <h4><i class="fas fa-user-check"></i> Autenticacion</h4>
+                            <p>Verificar identidad de usuarios/servicios</p>
+                            <div class="tech-tools">
+                                <div class="tech-tool">JWT</div>
+                                <div class="tech-tool">OAuth2</div>
+                                <div class="tech-tool">API Keys</div>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <h4><i class="fas fa-user-shield"></i> Autorizacion</h4>
+                            <p>Controlar acceso a recursos y acciones</p>
+                            <div class="tech-tools">
+                                <div class="tech-tool">RBAC</div>
+                                <div class="tech-tool">Policies</div>
+                                <div class="tech-tool">ACL</div>
+                            </div>
+                        </div>
+                        
+                        <div class="security-item">
+                            <h4><i class="fas fa-key"></i> Gestion de Secretos</h4>
+                            <p>Proteger claves, passwords y tokens</p>
+                            <div class="tech-tools">
+                                <div class="tech-tool">Vault</div>
+                                <div class="tech-tool">AWS Secrets</div>
+                                <div class="tech-tool">Kubernetes Secrets</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-3">
+                        <div class="callout-title">Comunicacion segura entre servicios</div>
+                        <p>Toda comunicacion entre microservicios debe ser:
+                            <ul class="icon-list">
+                                <li><i class="fas fa-shield-alt"></i> <strong>Encriptada:</strong> Usar HTTPS/TLS</li>
+                                <li><i class="fas fa-shield-alt"></i> <strong>Autenticada:</strong> Verificar identidad del servicio</li>
+                                <li><i class="fas fa-shield-alt"></i> <strong>Autorizada:</strong> Solo servicios permitidos pueden comunicarse</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+
+<!-- Tarjeta 5: Herramientas y Tecnologías (VERSIÓN CORREGIDA) -->
+<div class="full-width-section animate-in delay-1">
+    <div class="section-header">
+        <h2 class="section-title">
+            <i class="fas fa-tools"></i> Herramientas y Tecnologías
+        </h2>
+        <p class="section-subtitle">Stack tecnológico completo para backend en microservicios</p>
+    </div>
+    
+    <div class="tech-stack-container">
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-code" style="color: var(--color-section-1);"></i> Lenguajes Backend</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">Node.js</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Java</div>
+                <div class="tech-item">Go</div>
+                <div class="tech-item">C#</div>
+                <div class="tech-item">Ruby</div>
+                <div class="tech-item">PHP</div>
+                <div class="tech-item">Scala</div>
+            </div>
+        </div>
+        
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-database" style="color: var(--color-section-2);"></i> Bases de Datos</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">MySQL</div>
+                <div class="tech-item">MongoDB</div>
+                <div class="tech-item">Redis</div>
+                <div class="tech-item">Cassandra</div>
+                <div class="tech-item">Elasticsearch</div>
+                <div class="tech-item">DynamoDB</div>
+                <div class="tech-item">Firestore</div>
+            </div>
+        </div>
+        
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-cloud" style="color: var(--color-section-3);"></i> DevOps/CI-CD</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">Docker</div>
+                <div class="tech-item">Kubernetes</div>
+                <div class="tech-item">Jenkins</div>
+                <div class="tech-item">GitLab CI</div>
+                <div class="tech-item">GitHub Actions</div>
+                <div class="tech-item">Terraform</div>
+                <div class="tech-item">Ansible</div>
+                <div class="tech-item">Helm</div>
+            </div>
+        </div>
+        
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-chart-line" style="color: var(--color-section-4);"></i> Monitorización</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">Prometheus</div>
+                <div class="tech-item">Grafana</div>
+                <div class="tech-item">ELK Stack</div>
+                <div class="tech-item">New Relic</div>
+                <div class="tech-item">Datadog</div>
+                <div class="tech-item">Splunk</div>
+                <div class="tech-item">Jaeger</div>
+                <div class="tech-item">Zipkin</div>
+            </div>
+        </div>
+        
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-shield-alt" style="color: #4a6fa5;"></i> Seguridad</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">JWT</div>
+                <div class="tech-item">OAuth2</div>
+                <div class="tech-item">Vault</div>
+                <div class="tech-item">Keycloak</div>
+                <div class="tech-item">Let's Encrypt</div>
+                <div class="tech-item">OpenSSL</div>
+                <div class="tech-item">Auth0</div>
+                <div class="tech-item">Okta</div>
+            </div>
+        </div>
+        
+        <div class="tech-category">
+            <div class="category-header">
+                <h4><i class="fas fa-exchange-alt" style="color: #6bc4a6;"></i> Comunicación</h4>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">REST APIs</div>
+                <div class="tech-item">GraphQL</div>
+                <div class="tech-item">gRPC</div>
+                <div class="tech-item">WebSockets</div>
+                <div class="tech-item">Kafka</div>
+                <div class="tech-item">RabbitMQ</div>
+                <div class="tech-item">Redis Pub/Sub</div>
+                <div class="tech-item">NATS</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="callout mt-3">
+        <div class="callout-title">API Gateway - Punto único de entrada</div>
+        <p>En microservicios, un <strong>API Gateway</strong> (Kong, Apigee, AWS API Gateway) actúa como:
+            <ul class="icon-list">
+                <li><i class="fas fa-filter"></i> <strong>Enrutador:</strong> Dirige solicitudes al servicio correcto</li>
+                <li><i class="fas fa-shield-alt"></i> <strong>Seguridad:</strong> Autenticación, autorización, rate limiting</li>
+                <li><i class="fas fa-tachometer-alt"></i> <strong>Monitorización:</strong> Métricas, logs, analytics</li>
+                <li><i class="fas fa-exchange-alt"></i> <strong>Transformación:</strong> Protocolos, formatos de datos</li>
+                <li><i class="fas fa-sync-alt"></i> <strong>Resiliencia:</strong> Circuit breakers, retries, fallback</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+            <!-- Tarjeta 6: Buenas Prácticas -->
+            <div class="comparison-container animate-in delay-3">
+                <h2 class="comparison-title">
+                    <i class="fas fa-check-circle"></i> Buenas Practicas Backend
+                </h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-label">Principios de Diseno</div>
+                        <p><i class="fas fa-cube fa-2x mb-1" style="color: var(--color-section-1);"></i></p>
+                        <p><strong>Responsabilidad Unica:</strong> Cada servicio hace una cosa bien</p>
+                        <p><strong>Acoplamiento Bajo:</strong> Minimizar dependencias entre servicios</p>
+                        <p><strong>Cohesion Alta:</strong> Logica relacionada en mismo servicio</p>
+                        <p><strong>Resiliencia:</strong> Planear para fallos</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="comparison-label">Comunicacion Efectiva</div>
+                        <p><i class="fas fa-comments fa-2x mb-1" style="color: var(--color-section-2);"></i></p>
+                        <p><strong>APIs RESTful:</strong> Interfaz clara y consistente</p>
+                        <p><strong>Formato JSON:</strong> Ligero y estandar</p>
+                        <p><strong>Versionado:</strong> Mantener compatibilidad</p>
+                        <p><strong>Documentacion:</strong> APIs bien documentadas</p>
+                    </div>
+                </div>
+                
+                <div class="rest-principles mt-3">
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Rendimiento</h4>
+                        <p>Cache, consultas optimizadas, codigo eficiente</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h4>Escalabilidad</h4>
+                        <p>Diseno para crecimiento horizontal</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4>Observabilidad</h4>
+                        <p>Logs, metricas, tracing distribuido</p>
+                    </div>
+                    
+                    <div class="principle-card">
+                        <div class="principle-icon">
+                            <i class="fas fa-undo"></i>
+                        </div>
+                        <h4>Resiliencia</h4>
+                        <p>Circuit breakers, retries, fallback</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <h4><i class="fas fa-graduation-cap"></i> El Rol del Backend en Microservicios</h4>
+                    <p>Un desarrollador backend en microservicios no solo escribe codigo, sino que debe pensar en <span class="highlight">arquitectura, escalabilidad, seguridad y operaciones</span>. Es un rol mas estrategico que tecnico.</p>
+                    <p class="mt-1">¡El backend es la columna vertebral de los microservicios!</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="infographic-footer">
+            <p class="mb-1">Un buen backend en microservicios hace que todo funcione sin ser visto</p>
+            <p><span class="footer-logo">Desarrollo Fullstack - DSY1103</span> | Backend: La logica detras de la magia</p>
+            <p class="mt-1">
+                <i class="fas fa-cogs" style="color: var(--color-info);"></i> 
+                Recuerda: Microservicios exitosos = Backend robusto + Comunicacion efectiva + Operaciones solidas
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animacion para las tarjetas de responsabilidad
+            const responsibilityCards = document.querySelectorAll('.responsibility-card');
+            responsibilityCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 150);
+                
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Animacion para los pasos del flujo de trabajo
+            const workflowSteps = document.querySelectorAll('.workflow-step');
+            workflowSteps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = '1';
+                    step.style.transform = 'scale(1)';
+                }, index * 300);
+                
+                step.style.opacity = '0';
+                step.style.transform = 'scale(0.8)';
+                step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Efecto en los nodos de servicio
+            const serviceNodes = document.querySelectorAll('.service-node');
+            serviceNodes.forEach(node => {
+                node.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                node.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            // Efecto en las herramientas tecnologicas
+            const techTools = document.querySelectorAll('.tech-tool');
+            techTools.forEach(tool => {
+                tool.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                    this.style.boxShadow = 'var(--shadow-md)';
+                });
+                
+                tool.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
