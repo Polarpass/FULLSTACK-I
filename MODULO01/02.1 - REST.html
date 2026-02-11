@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: ¿Qué es REST?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1 class="infographic-title animate-in">
+                <i class="fas fa-network-wired"></i> ¿Qué es REST?
+            </h1>
+            <p class="infographic-subtitle animate-in delay-1">
+                Representational State Transfer - El estilo arquitectónico que domina las APIs web modernas
+            </p>
+        </header>
+        
+        <div class="infographic-content">
+            <!-- Tarjeta 1: Definición -->
+            <div class="info-card animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2 class="card-title">Definición Simple</h2>
+                <div class="card-content">
+                    <p><strong>REST</strong> significa <span class="highlight">Representational State Transfer</span> (Transferencia de Estado Representacional).</p>
+                    
+                    <p>Es un <span class="highlight">estilo arquitectónico</span> para diseñar APIs web que sigue principios específicos para hacerlas escalables, mantenibles y fáciles de usar.</p>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">¡No es un protocolo!</div>
+                        <p>REST es un <strong>conjunto de principios y restricciones</strong>, no un protocolo como HTTP. Aunque casi siempre se usa con HTTP.</p>
+                    </div>
+                    
+                    <div class="rest-visual">
+                        <div class="rest-card">
+                            <div class="rest-method get-method">GET</div>
+                            <p>Obtener datos</p>
+                        </div>
+                        <div class="rest-card">
+                            <div class="rest-method post-method">POST</div>
+                            <p>Crear datos</p>
+                        </div>
+                        <div class="rest-card">
+                            <div class="rest-method put-method">PUT</div>
+                            <p>Actualizar datos</p>
+                        </div>
+                        <div class="rest-card">
+                            <div class="rest-method delete-method">DELETE</div>
+                            <p>Eliminar datos</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-2"><i class="fas fa-lightbulb"></i> <strong>Lo esencial:</strong> REST organiza todo como <span class="highlight">recursos</span> (usuarios, productos, pedidos) que se manipulan con <span class="highlight">verbos HTTP</span>.</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2: Analogía del restaurante -->
+            <div class="info-card card-2 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h2 class="card-title">La Analogía del Restaurante RESTful</h2>
+                <div class="card-content">
+                    <div class="api-flow">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <div><strong>Menú (Recursos):</strong> Cada plato es un recurso (/hamburguesas, /pizzas, /bebidas)</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <div><strong>Pedir (GET):</strong> "Quiero ver el menú de hamburguesas" = GET /hamburguesas</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <div><strong>Ordenar (POST):</strong> "Quiero una hamburguesa con queso" = POST /pedidos</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <div><strong>Modificar (PUT):</strong> "Cambio la hamburguesa por una con bacon" = PUT /pedidos/123</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-number">5</div>
+                            <div><strong>Cancelar (DELETE):</strong> "Cancelar mi pedido" = DELETE /pedidos/123</div>
+                        </div>
+                    </div>
+                    
+                    <div class="rest-example mt-2">
+                        <span class="rest-verb">GET</span> <span class="rest-url">/api/pedidos/456</span><br>
+                        <span class="rest-status">200 OK</span><br>
+                        {<br>
+                        &nbsp;&nbsp;"id": 456,<br>
+                        &nbsp;&nbsp;"cliente": "Ana Gómez",<br>
+                        &nbsp;&nbsp;"items": ["Hamburguesa", "Papas fritas"],<br>
+                        &nbsp;&nbsp;"total": 12500<br>
+                        }
+                    </div>
+                    
+                    <p class="mt-2"><i class="fas fa-check-circle"></i> <strong>Stateless:</strong> Cada pedido es independiente. El mozo no recuerda tus pedidos anteriores (sin estado).</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3: Los 6 Principios de REST -->
+            <div class="info-card card-3 animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2 class="card-title">Los 6 Principios de REST</h2>
+                <div class="card-content">
+                    <p>Para que una API sea considerada <span class="highlight">RESTful</span>, debe seguir estos principios:</p>
+                    
+                    <div class="rest-principles">
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4>Arquitectura Cliente-Servidor</h4>
+                            <p>Separación clara entre frontend y backend</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h4>Stateless (Sin estado)</h4>
+                            <p>Cada solicitud contiene toda la información necesaria</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-save"></i>
+                            </div>
+                            <h4>Cacheable</h4>
+                            <p>Las respuestas deben indicar si se pueden cachear</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <h4>Sistema en Capas</h4>
+                            <p>El cliente no sabe si hay servidores intermedios</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h4>Código bajo demanda</h4>
+                            <p>(Opcional) El servidor puede enviar código ejecutable</p>
+                        </div>
+                        
+                        <div class="principle-card">
+                            <div class="principle-icon">
+                                <i class="fas fa-universal-access"></i>
+                            </div>
+                            <h4>Interfaz uniforme</h4>
+                            <p>El principio más importante. Tiene 4 sub-principios:</p>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">Interfaz Uniforme - Las 4 Reglas</div>
+                        <p><strong>1. Identificación de recursos:</strong> Todo es un recurso con URL única (/usuarios/123)</p>
+                        <p><strong>2. Manipulación a través de representaciones:</strong> Trabajas con JSON/XML, no con el recurso directo</p>
+                        <p><strong>3. Mensajes autodescriptivos:</strong> Cada mensaje tiene toda la info necesaria</p>
+                        <p><strong>4. Hipermedia como motor de estado:</strong> Links a otros recursos en las respuestas</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4: REST vs SOAP -->
+            <div class="info-card card-4 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h2 class="card-title">REST vs SOAP</h2>
+                <div class="card-content">
+                    <p>Las dos principales formas de construir APIs web:</p>
+                    
+                    <div class="rest-vs-soap">
+                        <div class="format-card rest-card-compare">
+                            <div class="format-icon" style="color: #6bc4a6;">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3 class="format-title" style="color: #6bc4a6;">REST</h3>
+                            <p><strong>Estilo arquitectónico</strong></p>
+                            <ul class="icon-list">
+                                <li><i class="fas fa-check"></i> Usa HTTP directamente</li>
+                                <li><i class="fas fa-check"></i> JSON/XML liviano</li>
+                                <li><i class="fas fa-check"></i> Sin estado</li>
+                                <li><i class="fas fa-check"></i> Más rápido y simple</li>
+                                <li><i class="fas fa-check"></i> Ideal para web/móvil</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="format-card soap-card">
+                            <div class="format-icon" style="color: #4a6fa5;">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h3 class="format-title" style="color: #4a6fa5;">SOAP</h3>
+                            <p><strong>Protocolo</strong></p>
+                            <ul class="icon-list">
+                                <li><i class="fas fa-check"></i> Protocolo XML estricto</li>
+                                <li><i class="fas fa-check"></i> WSDL para contrato</li>
+                                <li><i class="fas fa-check"></i> Con estado</li>
+                                <li><i class="fas fa-check"></i> Más robusto y seguro</li>
+                                <li><i class="fas fa-check"></i> Ideal para empresarial</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-3"><strong>¿Cuándo usar cada uno?</strong></p>
+                    
+                    <div class="use-cases">
+                        <div class="use-case json-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>REST</h4>
+                            <p>APIs públicas, móviles, startups</p>
+                        </div>
+                        
+                        <div class="use-case xml-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>SOAP</h4>
+                            <p>Bancos, sistemas legacy, alta seguridad</p>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">¡Importante hoy!</div>
+                        <p><strong>REST es el estándar actual:</strong> El 90% de las APIs nuevas son REST. SOAP se usa principalmente en sistemas empresariales existentes.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 5: Códigos de Estado HTTP -->
+            <div class="syntax-section animate-in delay-3">
+                <h2 class="syntax-title">
+                    <i class="fas fa-list-ol"></i> Códigos de Estado HTTP en REST
+                </h2>
+                <p class="text-center mb-3">Cada respuesta REST incluye un código que indica qué pasó:</p>
+                
+                <div class="format-comparison">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title" style="color: #49cc90;">Éxito (2xx)</h3>
+                        </div>
+                        <div class="status-codes">
+                            <div class="status-code status-2xx">200 OK</div>
+                            <div class="status-code status-2xx">201 Created</div>
+                            <div class="status-code status-2xx">204 No Content</div>
+                        </div>
+                        <p class="mt-2"><strong>Significado:</strong> La solicitud se completó exitosamente</p>
+                    </div>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title" style="color: #fca130;">Redirección (3xx)</h3>
+                        </div>
+                        <div class="status-codes">
+                            <div class="status-code status-3xx">301 Moved</div>
+                            <div class="status-code status-3xx">304 Not Modified</div>
+                        </div>
+                        <p class="mt-2"><strong>Significado:</strong> Se necesita acción adicional</p>
+                    </div>
+                </div>
+                
+                <div class="format-comparison mt-3">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title" style="color: #f93e3e;">Error Cliente (4xx)</h3>
+                        </div>
+                        <div class="status-codes">
+                            <div class="status-code status-4xx">400 Bad Request</div>
+                            <div class="status-code status-4xx">401 Unauthorized</div>
+                            <div class="status-code status-4xx">404 Not Found</div>
+                        </div>
+                        <p class="mt-2"><strong>Significado:</strong> Error del lado del cliente</p>
+                    </div>
+                    
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title" style="color: #6c757d;">Error Servidor (5xx)</h3>
+                        </div>
+                        <div class="status-codes">
+                            <div class="status-code status-5xx">500 Internal Error</div>
+                            <div class="status-code status-5xx">503 Service Unavailable</div>
+                        </div>
+                        <p class="mt-2"><strong>Significado:</strong> Error del lado del servidor</p>
+                    </div>
+                </div>
+                
+                <div class="rest-example mt-3">
+                    <span class="rest-verb">GET</span> <span class="rest-url">/api/productos/999</span><br>
+                    <span class="rest-status">404 Not Found</span><br>
+                    {<br>
+                    &nbsp;&nbsp;"error": "Producto no encontrado",<br>
+                    &nbsp;&nbsp;"message": "El producto con ID 999 no existe",<br>
+                    &nbsp;&nbsp;"statusCode": 404<br>
+                    }
+                </div>
+            </div>
+            
+            <!-- Tarjeta 6: Buenas Prácticas REST -->
+            <div class="comparison-container animate-in delay-3">
+                <h2 class="comparison-title">
+                    <i class="fas fa-check-circle"></i> Buenas Prácticas REST
+                </h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-label">URLs Significativas</div>
+                        <p><i class="fas fa-link fa-2x mb-1" style="color: var(--color-accent);"></i></p>
+                        <p><strong>✓ GET /usuarios</strong> (lista usuarios)</p>
+                        <p><strong>✓ GET /usuarios/123</strong> (usuario específico)</p>
+                        <p><strong>✓ GET /usuarios/123/pedidos</strong> (pedidos del usuario)</p>
+                        <p><strong>✗ GET /getUser?id=123</strong> (no RESTful)</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="comparison-label">Versión de API</div>
+                        <p><i class="fas fa-code-branch fa-2x mb-1" style="color: var(--color-primary);"></i></p>
+                        <p><strong>/api/v1/usuarios</strong></p>
+                        <p><strong>/api/v2/usuarios</strong></p>
+                        <p>Siempre versiona tu API para mantener compatibilidad cuando hagas cambios grandes.</p>
+                    </div>
+                </div>
+                
+                <div class="callout mt-3">
+                    <div class="callout-title">REST en Microservicios</div>
+                    <p>En arquitectura de microservicios, cada servicio expone su propia API REST. Esto permite que los servicios se comuniquen entre sí de manera estandarizada:</p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-exchange-alt"></i> Servicio Usuarios: REST API en /api/usuarios</li>
+                        <li><i class="fas fa-exchange-alt"></i> Servicio Pedidos: REST API en /api/pedidos</li>
+                        <li><i class="fas fa-exchange-alt"></i> Servicio Pagos: REST API en /api/pagos</li>
+                    </ul>
+                    <p class="mt-1">¡Cada microservicio es independiente pero se comunican mediante APIs REST bien definidas!</p>
+                </div>
+                
+                <div class="rest-example mt-2">
+                    <span class="rest-verb">POST</span> <span class="rest-url">/api/v1/pedidos</span><br>
+                    <span class="rest-verb">Content-Type: application/json</span><br>
+                    {<br>
+                    &nbsp;&nbsp;"usuarioId": 123,<br>
+                    &nbsp;&nbsp;"productos": [456, 789],<br>
+                    &nbsp;&nbsp;"total": 29990<br>
+                    }<br>
+                    <span class="rest-status">201 Created</span><br>
+                    {<br>
+                    &nbsp;&nbsp;"id": 1001,<br>
+                    &nbsp;&nbsp;"status": "pendiente",<br>
+                    &nbsp;&nbsp;"_links": {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"self": "/api/v1/pedidos/1001",<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"usuario": "/api/v1/usuarios/123"<br>
+                    &nbsp;&nbsp;}<br>
+                    }
+                </div>
+                
+                <div class="text-center mt-3">
+                    <h4><i class="fas fa-graduation-cap"></i> Recapitulando...</h4>
+                    <p>REST = <span class="highlight">Recursos</span> + <span class="highlight">HTTP Verbs</span> + <span class="highlight">Representaciones</span> + <span class="highlight">Stateless</span></p>
+                    <p class="mt-1"><span class="rest-badge">RESTful</span> = API que sigue todos los principios de REST</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="infographic-footer">
+            <p class="mb-1">¡REST es el lenguaje universal de las APIs web modernas!</p>
+            <p><span class="footer-logo">Desarrollo Fullstack - DSY1103</span> | REST: El estilo que domina la web</p>
+            <p class="mt-1">
+                <i class="fas fa-code" style="color: var(--color-info);"></i> 
+                Recuerda: RESTful = Simple, escalable y sin estado
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto para las tarjetas REST
+            const restCards = document.querySelectorAll('.rest-card');
+            restCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+                
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Efecto para las tarjetas de principios
+            const principleCards = document.querySelectorAll('.principle-card');
+            principleCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100 + 300);
+                
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Efecto para los códigos de estado
+            const statusCodes = document.querySelectorAll('.status-code');
+            statusCodes.forEach((code, index) => {
+                code.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                    this.style.boxShadow = 'var(--shadow-md)';
+                });
+                
+                code.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Mostrar flujo paso a paso
+            const flowSteps = document.querySelectorAll('.flow-step');
+            flowSteps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, index * 300);
+                
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>

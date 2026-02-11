@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: ¿Qué es un API?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1 class="infographic-title animate-in">
+                <i class="fas fa-exchange-alt"></i> ¿Qué es un API?
+            </h1>
+            <p class="infographic-subtitle animate-in delay-1">
+                La Interfaz que permite que diferentes aplicaciones se comuniquen entre sí
+            </p>
+        </header>
+        
+        <div class="infographic-content">
+            <!-- Tarjeta 1: Definición -->
+            <div class="info-card animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h2 class="card-title">Definición Simple</h2>
+                <div class="card-content">
+                    <p><strong>API</strong> significa <span class="highlight">Interfaz de Programación de Aplicaciones</span> (Application Programming Interface).</p>
+                    
+                    <p>Es como un <span class="highlight">menú de restaurante</span> que te dice qué platos puedes pedir, cómo pedirlos y qué recibirás, sin necesidad de conocer cómo se cocina cada plato.</p>
+                    
+                    <div class="api-visual mt-2">
+                        <div class="api-client">
+                            <i class="fas fa-mobile-alt fa-2x"></i>
+                            <p class="mt-1">Aplicación Cliente</p>
+                        </div>
+                        
+                        <div class="api-arrow">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        
+                        <div class="api-server">
+                            <i class="fas fa-server fa-2x"></i>
+                            <p class="mt-1">Servidor / API</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-2">Un API define las <span class="highlight">reglas y protocolos</span> que permiten que diferentes sistemas de software se comuniquen entre sí.</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2: Analogía -->
+            <div class="info-card card-2 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h2 class="card-title">La Analogía del Restaurante</h2>
+                <div class="card-content">
+                    <div class="api-flow">
+                        <div class="flow-step">
+                            <div class="flow-number">1</div>
+                            <div>Tú (cliente) miras el menú (documentación del API)</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-number">2</div>
+                            <div>Pides tu comida (envías una solicitud HTTP)</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-number">3</div>
+                            <div>La cocina (servidor) prepara tu pedido (procesa la solicitud)</div>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="flow-number">4</div>
+                            <div>Recibes tu comida (obtienes una respuesta en JSON/XML)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">¡No necesitas saber cocinar!</div>
+                        <p>Así como no necesitas saber cocinar para disfrutar de un buen plato, no necesitas saber cómo funciona internamente un servicio para usar su API.</p>
+                    </div>
+                    
+                    <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <strong>Ejemplo real:</strong> Cuando usas Google Maps en una app de delivery, esa app está usando el API de Google Maps sin tener que crear su propio sistema de mapas.</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3: Cómo funciona -->
+            <div class="info-card card-3 animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h2 class="card-title">¿Cómo funciona un API?</h2>
+                <div class="card-content">
+                    <p>Los APIs web normalmente funcionan sobre <span class="highlight">HTTP/HTTPS</span> usando estos métodos:</p>
+                    
+                    <div class="api-example">
+                        <div class="api-endpoint">
+                            <span class="http-method get">GET</span> /api/usuarios
+                            <span class="rest-badge">Obtiene lista de usuarios</span>
+                        </div>
+                        
+                        <div class="api-endpoint">
+                            <span class="http-method post">POST</span> /api/usuarios
+                            <span class="rest-badge">Crea un nuevo usuario</span>
+                        </div>
+                        
+                        <div class="api-endpoint">
+                            <span class="http-method put">PUT</span> /api/usuarios/123
+                            <span class="rest-badge">Actualiza usuario con ID 123</span>
+                        </div>
+                        
+                        <div class="api-endpoint">
+                            <span class="http-method delete">DELETE</span> /api/usuarios/123
+                            <span class="rest-badge">Elimina usuario con ID 123</span>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-2"><strong>Flujo típico de una solicitud API:</strong></p>
+                    
+                    <div class="code-block">
+                        <span class="comment">// 1. Cliente envía solicitud HTTP</span><br>
+                        <span class="keyword">GET</span> https://api.ejemplo.com/usuarios<br><br>
+                        
+                        <span class="comment">// 2. Servidor procesa la solicitud</span><br>
+                        <span class="keyword">if</span> (usuarioAutenticado) {<br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="string">"lista de usuarios en JSON"</span>;<br>
+                        }<br><br>
+                        
+                        <span class="comment">// 3. Cliente recibe respuesta</span><br>
+                        {<br>
+                        &nbsp;&nbsp;<span class="string">"status"</span>: <span class="string">"success"</span>,<br>
+                        &nbsp;&nbsp;<span class="string">"data"</span>: [ ... ]<br>
+                        }
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4: Tipos y usos -->
+            <div class="info-card card-4 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h2 class="card-title">Tipos de APIs y Usos Comunes</h2>
+                <div class="card-content">
+                    <p><strong>Tipos de APIs más comunes:</strong></p>
+                    
+                    <div class="api-types">
+                        <div class="api-type">
+                            <i class="fas fa-globe fa-2x mb-1" style="color: var(--color-section-1);"></i>
+                            <h4>APIs Web (REST)</h4>
+                            <p>Lo más común hoy. Usan HTTP y devuelven JSON/XML.</p>
+                        </div>
+                        
+                        <div class="api-type">
+                            <i class="fas fa-bolt fa-2x mb-1" style="color: var(--color-section-2);"></i>
+                            <h4>APIs en Tiempo Real</h4>
+                            <p>WebSockets, GraphQL subscriptions para datos en vivo.</p>
+                        </div>
+                        
+                        <div class="api-type">
+                            <i class="fas fa-database fa-2x mb-1" style="color: var(--color-section-3);"></i>
+                            <h4>APIs de Biblioteca</h4>
+                            <p>Funciones dentro de un lenguaje (como las de JavaScript).</p>
+                        </div>
+                        
+                        <div class="api-type">
+                            <i class="fas fa-shield-alt fa-2x mb-1" style="color: var(--color-section-4);"></i>
+                            <h4>APIs Privadas</h4>
+                            <p>Para uso interno de una empresa o aplicación.</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-2"><strong>¿Dónde encuentras APIs en la vida real?</strong></p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-credit-card"></i> <strong>Pagos en línea:</strong> Stripe, PayPal</li>
+                        <li><i class="fas fa-map-marked-alt"></i> <strong>Mapas y geolocalización:</strong> Google Maps, Mapbox</li>
+                        <li><i class="fas fa-cloud-sun"></i> <strong>Clima:</strong> OpenWeather, WeatherAPI</li>
+                        <li><i class="fas fa-shopping-cart"></i> <strong>E-commerce:</strong> Shopify, WooCommerce</li>
+                        <li><i class="fas fa-share-alt"></i> <strong>Redes sociales:</strong> Twitter, Facebook, Instagram</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Comparación -->
+            <div class="comparison-container animate-in delay-3">
+                <h2 class="comparison-title">
+                    <i class="fas fa-random"></i> APIs en Microservicios
+                </h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-label">Comunicación entre Microservicios</div>
+                        <p><i class="fas fa-cubes fa-2x mb-1" style="color: var(--color-accent);"></i></p>
+                        <p>Los APIs son el <span class="highlight">"lenguaje común"</span> que permite a los microservicios comunicarse.</p>
+                        <p><strong>Ejemplo:</strong> El servicio de "Usuarios" expone un API que el servicio de "Pedidos" consume para verificar usuarios.</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="comparison-label">APIs Públicas vs Privadas</div>
+                        <p><i class="fas fa-lock fa-2x mb-1" style="color: var(--color-primary);"></i></p>
+                        <p><strong>API Pública:</strong> Abierta a cualquier desarrollador (como Twitter API)</p>
+                        <p><strong>API Privada:</strong> Solo para uso interno de tu aplicación</p>
+                        <p><strong>API de Partners:</strong> Para socios comerciales específicos</p>
+                    </div>
+                </div>
+                
+                <div class="callout mt-3">
+                    <div class="callout-title">¡Importante en Microservicios!</div>
+                    <p>En una arquitectura de microservicios, cada servicio tiene su propio API bien definido. Esto permite que los servicios evolucionen independientemente mientras mantienen compatibilidad con los servicios que dependen de ellos.</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="infographic-footer">
+            <p class="mb-1">¡Los APIs son los puentes que conectan el mundo digital!</p>
+            <p><span class="footer-logo">Desarrollo Fullstack - DSY1103</span> | APIs: La comunicación entre sistemas</p>
+            <p class="mt-1">
+                <i class="fas fa-code" style="color: var(--color-info);"></i> 
+                Recuerda: Un buen API es como una buena conversación - clara, consistente y bien documentada
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animación para los elementos de flujo del API
+            const flowSteps = document.querySelectorAll('.flow-step');
+            flowSteps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.style.opacity = '1';
+                    step.style.transform = 'translateX(0)';
+                }, index * 300);
+                
+                // Estado inicial
+                step.style.opacity = '0';
+                step.style.transform = 'translateX(-20px)';
+                step.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Efecto en los endpoints del API
+            const endpoints = document.querySelectorAll('.api-endpoint');
+            endpoints.forEach(endpoint => {
+                endpoint.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = 'var(--shadow-md)';
+                });
+                
+                endpoint.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Efecto en los tipos de API
+            const apiTypes = document.querySelectorAll('.api-type');
+            apiTypes.forEach(type => {
+                type.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                });
+                
+                type.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Arquitectura de Microservicios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1 class="infographic-title animate-in">
+                <i class="fas fa-cubes"></i> ¿Qué es la Arquitectura de Microservicios?
+            </h1>
+            <p class="infographic-subtitle animate-in delay-1">
+                Una forma moderna de construir aplicaciones dividiéndolas en pequeños servicios independientes que trabajan juntos
+            </p>
+        </header>
+        
+        <div class="infographic-content">
+            <!-- Tarjeta 1: Definición -->
+            <div class="info-card animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h2 class="card-title">Definición Simple</h2>
+                <div class="card-content">
+                    <p>La arquitectura de microservicios es un <span class="highlight">estilo de diseño</span> donde una aplicación se construye como un conjunto de <span class="highlight">servicios pequeños e independientes</span>.</p>
+                    
+                    <p>Cada servicio:</p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-check-circle"></i> Tiene una función específica</li>
+                        <li><i class="fas fa-check-circle"></i> Se comunica con otros mediante APIs</li>
+                        <li><i class="fas fa-check-circle"></i> Puede desarrollarse y desplegarse por separado</li>
+                        <li><i class="fas fa-check-circle"></i> Usa la tecnología más adecuada para su tarea</li>
+                    </ul>
+                    
+                    <div class="visual-element mt-2">
+                        <div class="microservice-visual">
+                            <div class="service-box">
+                                <i class="fas fa-user"></i>
+                                <small>Usuarios</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-box">
+                                <i class="fas fa-shopping-cart"></i>
+                                <small>Pedidos</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-box">
+                                <i class="fas fa-credit-card"></i>
+                                <small>Pagos</small>
+                            </div>
+                            <div class="connection-line"></div>
+                            <div class="service-box">
+                                <i class="fas fa-truck"></i>
+                                <small>Envíos</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2: Analogía -->
+            <div class="info-card card-2 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2 class="card-title">¡Piensa en Legos!</h2>
+                <div class="card-content">
+                    <p>Imagina que construir una aplicación es como armar una estructura con legos:</p>
+                    
+                    <div class="callout mt-1">
+                        <div class="callout-title">Arquitectura Monolítica</div>
+                        <p>Es como tener un <span class="highlight">LEGO gigante de una sola pieza</span>. Si quieres cambiar una parte, tienes que rehacer todo.</p>
+                    </div>
+                    
+                    <div class="callout">
+                        <div class="callout-title">Arquitectura de Microservicios</div>
+                        <p>Es como tener <span class="highlight">muchos legos pequeños</span> que encajan entre sí. Puedes cambiar, mejorar o reemplazar piezas individuales sin afectar el resto.</p>
+                    </div>
+                    
+                    <p class="mt-2"><i class="fas fa-robot"></i> <strong>Ejemplo real:</strong> Netflix usa microservicios. Cuando ves una película, un servicio maneja la reproducción, otro las recomendaciones, otro tu perfil, etc.</p>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3: Características principales -->
+            <div class="info-card card-3 animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h2 class="card-title">Características Clave</h2>
+                <div class="card-content">
+                    <ul class="icon-list">
+                        <li><i class="fas fa-expand-arrows-alt"></i> <strong>Independencia:</strong> Cada servicio vive su propia vida</li>
+                        <li><i class="fas fa-language"></i> <strong>Comunicación vía API:</strong> Se hablan entre ellos mediante interfaces claras</li>
+                        <li><i class="fas fa-tools"></i> <strong>Tecnología adecuada:</strong> Cada servicio puede usar el lenguaje o herramienta que mejor le funcione</li>
+                        <li><i class="fas fa-rocket"></i> <strong>Despliegue independiente:</strong> Puedes actualizar un servicio sin tocar los demás</li>
+                        <li><i class="fas fa-shield-alt"></i> <strong>Aislamiento de fallos:</strong> Si un servicio falla, los demás siguen funcionando</li>
+                        <li><i class="fas fa-chart-line"></i> <strong>Escalabilidad selectiva:</strong> Escalas solo los servicios que necesitan más potencia</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4: ¿Cuándo usarlos? -->
+            <div class="info-card card-4 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h2 class="card-title">¿Cuándo usar Microservicios?</h2>
+                <div class="card-content">
+                    <p><strong>¡No son la solución para todo!</strong> Son ideales cuando:</p>
+                    
+                    <ul class="icon-list">
+                        <li><i class="fas fa-check"></i> Tu aplicación es <span class="highlight">grande y compleja</span></li>
+                        <li><i class="fas fa-check"></i> Necesitas <span class="highlight">escalar partes específicas</span> de tu app</li>
+                        <li><i class="fas fa-check"></i> Tu equipo es <span class="highlight">grande</span> y trabaja en partes diferentes</li>
+                        <li><i class="fas fa-check"></i> Quieres <span class="highlight">experimentar</span> con nuevas tecnologías</li>
+                    </ul>
+                    
+                    <p class="mt-2"><strong>Mejor empezar con monolito si:</strong></p>
+                    <ul class="icon-list">
+                        <li><i class="fas fa-times"></i> Es un <span class="highlight">proyecto pequeño</span></li>
+                        <li><i class="fas fa-times"></i> Tu <span class="highlight">equipo es reducido</span></li>
+                        <li><i class="fas fa-times"></i> Necesitas <span class="highlight">lanzar rápido</span> al mercado</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Comparación -->
+            <div class="comparison-container animate-in delay-3">
+                <h2 class="comparison-title">
+                    <i class="fas fa-balance-scale"></i> Microservicios vs. Monolítico
+                </h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-label">Arquitectura Monolítica</div>
+                        <p><i class="fas fa-cube fa-2x mb-1" style="color: var(--color-primary);"></i></p>
+                        <p>Todo en un solo bloque de código</p>
+                        <p><strong>+</strong> Más simple de desarrollar</p>
+                        <p><strong>+</strong> Fácil de probar y depurar</p>
+                        <p><strong>-</strong> Difícil de escalar</p>
+                        <p><strong>-</strong> Cambios afectan a todo</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="comparison-label">Arquitectura de Microservicios</div>
+                        <p><i class="fas fa-cubes fa-2x mb-1" style="color: var(--color-accent);"></i></p>
+                        <p>Muchos servicios independientes</p>
+                        <p><strong>+</strong> Escalabilidad flexible</p>
+                        <p><strong>+</strong> Tecnologías diversas</p>
+                        <p><strong>-</strong> Más complejo de gestionar</p>
+                        <p><strong>-</strong> Comunicación entre servicios</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="infographic-footer">
+            <p class="mb-1">¡Recuerda! La mejor arquitectura depende de las necesidades de tu proyecto</p>
+            <p><span class="footer-logo">Desarrollo Fullstack - DSY1103</span> | Material educativo para estudiantes</p>
+            <p class="mt-1">
+                <i class="fas fa-heart" style="color: var(--color-accent);"></i> 
+                Aprende, experimenta y construye cosas increíbles
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Animación simple al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animate-in');
+            
+            animatedElements.forEach((element, index) => {
+                // Ya tienen las clases de animación, solo aseguramos que sean visibles
+                element.style.opacity = '1';
+            });
+            
+            // Efecto interactivo en los servicios
+            const serviceBoxes = document.querySelectorAll('.service-box');
+            serviceBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

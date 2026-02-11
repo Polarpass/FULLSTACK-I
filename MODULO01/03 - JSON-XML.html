@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: JSON vs XML</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="infographic-container">
+        <header class="infographic-header">
+            <h1 class="infographic-title animate-in">
+                <i class="fas fa-code"></i> JSON vs XML: ¿Cuál usar?
+            </h1>
+            <p class="infographic-subtitle animate-in delay-1">
+                Los dos formatos más populares para intercambiar datos en la web
+            </p>
+        </header>
+        
+        <div class="infographic-content">
+            <!-- Tarjeta 1: Introducción -->
+            <div class="info-card animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <h2 class="card-title">¿Qué son JSON y XML?</h2>
+                <div class="card-content">
+                    <p>Ambos son formatos para <span class="highlight">estructurar e intercambiar datos</span> entre aplicaciones, especialmente en APIs web.</p>
+                    
+                    <div class="format-comparison">
+                        <div class="format-card json-card">
+                            <div class="format-icon json-icon">
+                                <i class="fab fa-js-square"></i>
+                            </div>
+                            <h3 class="format-title json-title">JSON</h3>
+                            <p><strong>JavaScript Object Notation</strong></p>
+                            <p>Formato ligero basado en la sintaxis de JavaScript. Se ha convertido en el estándar para APIs modernas.</p>
+                            <p class="mt-1"><i class="fas fa-birthday-cake"></i> <strong>Nació en 2001</strong></p>
+                        </div>
+                        
+                        <div class="format-card xml-card">
+                            <div class="format-icon xml-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="format-title xml-title">XML</h3>
+                            <p><strong>eXtensible Markup Language</strong></p>
+                            <p>Lenguaje de marcado extensible, más antiguo y verboso. Muy usado en sistemas empresariales.</p>
+                            <p class="mt-1"><i class="fas fa-history"></i> <strong>Nació en 1998</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">¡Ambos hacen lo mismo!</div>
+                        <p>JSON y XML sirven para lo mismo: estructurar datos de manera que sean legibles tanto para humanos como para máquinas. La diferencia está en <strong>cómo</strong> lo hacen.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 2: Comparación de sintaxis (MEJORADA) -->
+            <div class="syntax-section animate-in delay-2">
+                <h2 class="syntax-title">
+                    <i class="fas fa-file-code"></i> Comparación de Sintaxis
+                </h2>
+                <p class="text-center mb-3">Los mismos datos representados en ambos formatos:</p>
+                
+                <div class="syntax-comparison">
+                    <!-- JSON -->
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title json-title">JSON</h3>
+                            <span class="json-badge">JavaScript Object Notation</span>
+                        </div>
+                        <div class="code-example">
+<span class="json-key">"usuario"</span>: {
+  <span class="json-key">"id"</span>: <span class="json-number">12345</span>,
+  <span class="json-key">"nombre"</span>: <span class="json-string">"Carlos Rodríguez"</span>,
+  <span class="json-key">"email"</span>: <span class="json-string">"carlos@ejemplo.com"</span>,
+  <span class="json-key">"activo"</span>: <span class="json-boolean">true</span>,
+  <span class="json-key">"edad"</span>: <span class="json-number">28</span>,
+  <span class="json-key">"direccion"</span>: {
+    <span class="json-key">"calle"</span>: <span class="json-string">"Av. Principal 123"</span>,
+    <span class="json-key">"ciudad"</span>: <span class="json-string">"Santiago"</span>,
+    <span class="json-key">"pais"</span>: <span class="json-string">"Chile"</span>
+  },
+  <span class="json-key">"telefonos"</span>: [
+    <span class="json-string">"+56 9 1234 5678"</span>,
+    <span class="json-string">"+56 2 2345 6789"</span>
+  ],
+  <span class="json-key">"roles"</span>: [
+    <span class="json-string">"usuario"</span>,
+    <span class="json-string">"editor"</span>,
+    <span class="json-string">"moderador"</span>
+  ],
+  <span class="json-key">"preferencias"</span>: {
+    <span class="json-key">"tema"</span>: <span class="json-string">"oscuro"</span>,
+    <span class="json-key">"notificaciones"</span>: <span class="json-boolean">true</span>,
+    <span class="json-key">"idioma"</span>: <span class="json-string">"es"</span>
+  }
+}</div>
+                        <div class="stats-box">
+                            <div class="stat-item">
+                                <div class="stat-number">18</div>
+                                <div>líneas de código</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">648</div>
+                                <div>caracteres</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">Ligero</div>
+                                <div>y conciso</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- XML -->
+                    <div class="code-container">
+                        <div class="code-header">
+                            <h3 class="format-title xml-title">XML</h3>
+                            <span class="xml-badge">eXtensible Markup Language</span>
+                        </div>
+                        <div class="code-example">
+<span class="xml-declaration">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="xml-tag">&lt;usuario&gt;</span>
+  <span class="xml-tag">&lt;id&gt;</span><span class="xml-content">12345</span><span class="xml-tag">&lt;/id&gt;</span>
+  <span class="xml-tag">&lt;nombre&gt;</span><span class="xml-content">Carlos Rodríguez</span><span class="xml-tag">&lt;/nombre&gt;</span>
+  <span class="xml-tag">&lt;email&gt;</span><span class="xml-content">carlos@ejemplo.com</span><span class="xml-tag">&lt;/email&gt;</span>
+  <span class="xml-tag">&lt;activo&gt;</span><span class="xml-content">true</span><span class="xml-tag">&lt;/activo&gt;</span>
+  <span class="xml-tag">&lt;edad&gt;</span><span class="xml-content">28</span><span class="xml-tag">&lt;/edad&gt;</span>
+  <span class="xml-tag">&lt;direccion&gt;</span>
+    <span class="xml-tag">&lt;calle&gt;</span><span class="xml-content">Av. Principal 123</span><span class="xml-tag">&lt;/calle&gt;</span>
+    <span class="xml-tag">&lt;ciudad&gt;</span><span class="xml-content">Santiago</span><span class="xml-tag">&lt;/ciudad&gt;</span>
+    <span class="xml-tag">&lt;pais&gt;</span><span class="xml-content">Chile</span><span class="xml-tag">&lt;/pais&gt;</span>
+  <span class="xml-tag">&lt;/direccion&gt;</span>
+  <span class="xml-tag">&lt;telefonos&gt;</span>
+    <span class="xml-tag">&lt;telefono&gt;</span><span class="xml-content">+56 9 1234 5678</span><span class="xml-tag">&lt;/telefono&gt;</span>
+    <span class="xml-tag">&lt;telefono&gt;</span><span class="xml-content">+56 2 2345 6789</span><span class="xml-tag">&lt;/telefono&gt;</span>
+  <span class="xml-tag">&lt;/telefonos&gt;</span>
+  <span class="xml-tag">&lt;roles&gt;</span>
+    <span class="xml-tag">&lt;rol&gt;</span><span class="xml-content">usuario</span><span class="xml-tag">&lt;/rol&gt;</span>
+    <span class="xml-tag">&lt;rol&gt;</span><span class="xml-content">editor</span><span class="xml-tag">&lt;/rol&gt;</span>
+    <span class="xml-tag">&lt;rol&gt;</span><span class="xml-content">moderador</span><span class="xml-tag">&lt;/rol&gt;</span>
+  <span class="xml-tag">&lt;/roles&gt;</span>
+  <span class="xml-tag">&lt;preferencias</span> <span class="xml-attr">tema</span>=<span class="xml-attr-value">"oscuro"</span> <span class="xml-attr">notificaciones</span>=<span class="xml-attr-value">"true"</span> <span class="xml-attr">idioma</span>=<span class="xml-attr-value">"es"</span> <span class="xml-tag">/&gt;</span>
+<span class="xml-tag">&lt;/usuario&gt;</span></div>
+                        <div class="stats-box">
+                            <div class="stat-item">
+                                <div class="stat-number">31</div>
+                                <div>líneas de código</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1,284</div>
+                                <div>caracteres</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">Verboso</div>
+                                <div>pero explícito</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="syntax-diff">
+                    <div class="syntax-item">
+                        <div class="point-icon" style="color: #6bc4a6;">
+                            <i class="fas fa-feather-alt fa-2x"></i>
+                        </div>
+                        <h4>JSON: Más Ligero</h4>
+                        <p>50% menos tamaño, más rápido de transmitir</p>
+                    </div>
+                    
+                    <div class="syntax-item">
+                        <div class="point-icon" style="color: #4a6fa5;">
+                            <i class="fas fa-file-contract fa-2x"></i>
+                        </div>
+                        <h4>XML: Más Estructurado</h4>
+                        <p>Etiquetas explícitas, mejor para documentos complejos</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 3: Diferencias clave -->
+            <div class="info-card card-3 animate-in delay-1">
+                <div class="card-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h2 class="card-title">Diferencias Clave</h2>
+                <div class="card-content">
+                    <div class="comparison-points">
+                        <div class="point-card point-winner">
+                            <div class="point-icon" style="color: #6bc4a6;">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h4>Rendimiento</h4>
+                            <p><strong>JSON gana</strong><br>Más rápido de parsear y más ligero</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <div class="point-icon" style="color: #4a6fa5;">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>Legibilidad</h4>
+                            <p><strong>Empate</strong><br>Ambos son legibles, pero JSON es más conciso</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <div class="point-icon" style="color: #4a6fa5;">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <h4>Validación</h4>
+                            <p><strong>XML gana</strong><br>Tiene esquemas (XSD) para validación estricta</p>
+                        </div>
+                        
+                        <div class="point-card point-winner">
+                            <div class="point-icon" style="color: #6bc4a6;">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h4>Facilidad en JavaScript</h4>
+                            <p><strong>JSON gana</strong><br>Nativo en JavaScript, sin librerías extra</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <div class="point-icon" style="color: #4a6fa5;">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <h4>Metadatos</h4>
+                            <p><strong>XML gana</strong><br>Atributos en etiquetas para metadatos</p>
+                        </div>
+                        
+                        <div class="point-card point-winner">
+                            <div class="point-icon" style="color: #6bc4a6;">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>APIs Modernas</h4>
+                            <p><strong>JSON gana</strong><br>Estándar en REST APIs y móviles</p>
+                        </div>
+                    </div>
+                    
+                    <div class="callout mt-2">
+                        <div class="callout-title">¿Sabías que?</div>
+                        <p>JSON es tan popular que el 95% de las APIs REST modernas lo usan como formato principal. Pero XML sigue siendo indispensable en sistemas empresariales y SOAP.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta 4: ¿Cuándo usar cada uno? -->
+            <div class="info-card card-4 animate-in delay-2">
+                <div class="card-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h2 class="card-title">¿Cuándo usar cada uno?</h2>
+                <div class="card-content">
+                    <p><strong>Elige JSON cuando:</strong></p>
+                    <div class="use-cases">
+                        <div class="use-case json-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4>APIs REST</h4>
+                            <p>APIs web modernas</p>
+                        </div>
+                        
+                        <div class="use-case json-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h4>Aplicaciones Móviles</h4>
+                            <p>Menos datos = más rápido</p>
+                        </div>
+                        
+                        <div class="use-case json-use-case">
+                            <div class="use-case-icon">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <h4>Frontend JavaScript</h4>
+                            <p>Nativo en el navegador</p>
+                        </div>
+                        
+                        <div class="use-case json-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4>Rendimiento Crítico</h4>
+                            <p>Cuando cada byte cuenta</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-3"><strong>Elige XML cuando:</strong></p>
+                    <div class="use-cases">
+                        <div class="use-case xml-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Sistemas Empresariales</h4>
+                            <p>Bancos, gobiernos</p>
+                        </div>
+                        
+                        <div class="use-case xml-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <h4>Documentos Complejos</h4>
+                            <p>Con muchos metadatos</p>
+                        </div>
+                        
+                        <div class="use-case xml-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-exchange-alt"></i>
+                            </div>
+                            <h4>SOAP Web Services</h4>
+                            <p>Protocolo empresarial</p>
+                        </div>
+                        
+                        <div class="use-case xml-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <h4>Validación Estricta</h4>
+                            <p>Con esquemas XSD</p>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-3"><strong>Ambos funcionan:</strong></p>
+                    <div class="use-cases">
+                        <div class="use-case both-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4>Configuraciones</h4>
+                            <p>Archivos de configuración</p>
+                        </div>
+                        
+                        <div class="use-case both-use-case">
+                            <div class="use-case-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>Exportación de Datos</h4>
+                            <p>Backups, migraciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comparación final -->
+            <div class="comparison-container animate-in delay-3">
+                <h2 class="comparison-title">
+                    <i class="fas fa-graduation-cap"></i> En el Mundo Real
+                </h2>
+                <div class="comparison-grid">
+                    <div class="comparison-item">
+                        <div class="comparison-label">JSON en la Práctica</div>
+                        <p><i class="fab fa-js-square fa-2x mb-1" style="color: #6bc4a6;"></i></p>
+                        <p><strong>Twitter API:</strong> Devuelve tweets en JSON</p>
+                        <p><strong>Google Maps API:</strong> Coordenadas en JSON</p>
+                        <p><strong>Aplicaciones React/Vue:</strong> Comunicación con backend</p>
+                        <p><strong>App móvil de delivery:</strong> Menús y pedidos en JSON</p>
+                    </div>
+                    
+                    <div class="comparison-item">
+                        <div class="comparison-label">XML en la Práctica</div>
+                        <p><i class="fas fa-code fa-2x mb-1" style="color: #4a6fa5;"></i></p>
+                        <p><strong>Facturación electrónica:</strong> XML con esquema estricto</p>
+                        <p><strong>Sistemas bancarios:</strong> Transferencias internacionales</p>
+                        <p><strong>Microsoft Office:</strong> Archivos .docx son XML zipeados</p>
+                        <p><strong>RSS feeds:</strong> Noticias y blogs</p>
+                    </div>
+                </div>
+                
+                <div class="callout mt-3">
+                    <div class="callout-title">Consejo para Estudiantes</div>
+                    <p><strong>Aprende JSON primero:</strong> Es más sencillo y es lo que usarás en el 90% de tus proyectos modernos. Luego, entiende XML para trabajar con sistemas legacy o empresariales. ¡Ambos son herramientas valiosas en tu caja de herramientas de desarrollador!</p>
+                </div>
+                
+                <div class="text-center mt-3">
+                    <h4><i class="fas fa-random"></i> En Microservicios...</h4>
+                    <p>Los microservicios suelen comunicarse con <span class="json-badge">JSON</span> por su ligereza y compatibilidad con JavaScript. ¡Pero algunos servicios internos podrían usar <span class="xml-badge">XML</span> si necesitan validación estricta!</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="infographic-footer">
+            <p class="mb-1">¡Ambos formatos tienen su lugar en el desarrollo!</p>
+            <p><span class="footer-logo">Desarrollo Fullstack - DSY1103</span> | JSON y XML: Formatos de intercambio de datos</p>
+            <p class="mt-1">
+                <i class="fas fa-lightbulb" style="color: var(--color-warning);"></i> 
+                Recuerda: JSON para lo moderno y ágil, XML para lo empresarial y estructurado
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Efecto para las tarjetas de comparación
+            const pointCards = document.querySelectorAll('.point-card');
+            pointCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+                
+                // Estado inicial
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            // Efecto en los casos de uso
+            const useCases = document.querySelectorAll('.use-case');
+            useCases.forEach(useCase => {
+                useCase.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                useCase.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Resaltar diferencias en el código
+            const codeExamples = document.querySelectorAll('.code-example');
+            codeExamples.forEach(example => {
+                example.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.02)';
+                    this.style.boxShadow = '0 0 20px rgba(0,0,0,0.3)';
+                    
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                        this.style.boxShadow = 'none';
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
