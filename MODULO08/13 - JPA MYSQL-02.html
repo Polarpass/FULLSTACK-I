@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Repositorios JPA - Transporte Escolar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a2e3b 0%, #0f1a24 100%);
+            padding: 30px 20px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.5);
+            overflow: hidden;
+            border: 1px solid #4a5568;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #0b3b3f, #1a5f63);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px solid #6db33f;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .header h1 i {
+            color: #a7e0e0;
+            margin-right: 15px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .spring-badge {
+            background: #6db33f;
+            color: white;
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px -5px rgba(109,179,63,0.3);
+        }
+
+        /* CONTENIDO */
+        .content {
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* TARJETAS */
+        .card {
+            background: #2d3748;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #4a5568;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #6db33f;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .card-title i {
+            color: #6db33f;
+            font-size: 2rem;
+        }
+
+        .card-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            color: #6db33f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 992px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CÓDIGO */
+        .code-block {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 20px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 8px solid;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .code-block.repository {
+            border-left-color: #6db33f;
+        }
+
+        .code-block.crud {
+            border-left-color: #4299e1;
+        }
+
+        .code-block.query {
+            border-left-color: #f59e0b;
+        }
+
+        .comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .keyword {
+            color: #ffb86b;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #6bc4a6;
+        }
+
+        .annotation {
+            color: #f59e0b;
+        }
+
+        .type {
+            color: #9f7aea;
+        }
+
+        /* TABLAS */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #e2e8f0;
+        }
+
+        th {
+            background: #0f172a;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #6db33f;
+            font-size: 1rem;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        tr:hover td {
+            background: #334155;
+        }
+
+        .method-name {
+            color: #6bc4a6;
+            font-weight: 600;
+        }
+
+        /* EJEMPLOS VIDA REAL */
+        .real-example {
+            background: #1a3b2e;
+            border-left: 8px solid #6db33f;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .real-icon {
+            font-size: 3rem;
+            min-width: 60px;
+            text-align: center;
+        }
+
+        .real-content {
+            flex: 1;
+        }
+
+        .real-content h4 {
+            color: #6db33f;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        /* NOTAS */
+        .note {
+            background: #1e3a5f;
+            border-left: 8px solid #4299e1;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #7b341e;
+            border-left: 8px solid #f59e0b;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tip {
+            background: #1e3f2e;
+            border-left: 8px solid #6db33f;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            background: #2d3748;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            margin-right: 10px;
+        }
+
+        /* JERARQUÍA */
+        .hierarchy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .hierarchy-item {
+            background: #1e293b;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 2px solid;
+            font-weight: 600;
+        }
+
+        .hierarchy-item.repository {
+            border-color: #6db33f;
+            background: #1e3f2e;
+        }
+
+        .hierarchy-item.paging {
+            border-color: #4299e1;
+        }
+
+        .hierarchy-item.crud {
+            border-color: #f59e0b;
+        }
+
+        /* MÉTODOS */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .method-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid #4a5568;
+        }
+
+        .method-card:hover {
+            border-color: #6db33f;
+        }
+
+        .method-signature {
+            color: #6bc4a6;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .method-desc {
+            font-size: 0.9rem;
+            color: #a0aec0;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 4px solid #6db33f;
+        }
+
+        .footer i {
+            color: #6db33f;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 2px dashed #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>
+                <i class="fas fa-layer-group"></i> Repositorios JPA
+            </h1>
+            <p>Microservicio Transporte Escolar - Segunda Parte</p>
+            <div class="spring-badge">
+                <i class="fas fa-leaf"></i> Spring Data JPA
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+            
+            <!-- ============================================= -->
+            <!-- 1. INTERFAZ REPOSITORY - EL CORAZÓN DE JPA -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-database"></i> 1. Interfaz RutaTransporteRepository
+                </div>
+
+                <div class="code-block repository">
+                    <span class="keyword">public interface</span> <span class="type">RutaTransporteRepository</span> <span class="keyword">extends</span> <span class="type">JpaRepository</span>&lt;<span class="type">RutaTransporte</span>, <span class="type">Long</span>&gt; {<br>
+                    } <span class="comment">// ✅ ¡Vacío pero con superpoderes!</span>
+                </div>
+
+                <div class="real-example">
+                    <div class="real-icon">🎮</div>
+                    <div class="real-content">
+                        <h4><i class="fas fa-gamepad"></i> Ejemplo: Control Remoto Universal</h4>
+                        <p>Este repositorio vacío es como un <strong>control remoto universal</strong> que ya viene con todos los botones programados:</p>
+                        <ul style="margin-top: 15px; margin-left: 20px;">
+                            <li><strong>No necesitas programar</strong> el botón de encendido (save), ya funciona.</li>
+                            <li><strong>No necesitas programar</strong> el botón de volumen (findById), ya está listo.</li>
+                            <li><strong>No necesitas programar</strong> el botón de canales (findAll), viene de fábrica.</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><span class="badge">🎯</span> Extiendes <code>JpaRepository</code> y obtienes MÁS DE 20 MÉTODOS listos para usar.</p>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+    <div class="note">
+        <i class="fas fa-question-circle" style="color: #4299e1; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+        <h4 style="color: #4299e1; margin-bottom: 10px;">¿Qué significa <code>Long</code> (o <code>Integer</code>) aquí?</h4>
+        <p>Ese <strong>Long</strong> (o <strong>Integer</strong>) es el <strong>tipo de dato del ID</strong> de tu entidad. Es como decirle a Spring:</p>
+        <p style="font-style: italic; margin: 15px 0;">"Oye, el carnet de identidad de RutaTransporte es un número de este tipo".</p>
+        
+        <div class="code-block" style="margin-top: 15px; background: #1e293b;">
+            <span class="comment">// En la entidad:</span><br>
+            @Id<br>
+            @GeneratedValue(strategy = GenerationType.IDENTITY)<br>
+            <span class="keyword">private</span> <span class="type">Long</span> id;  <span class="comment">// ✅ ID es Long</span>
+        </div>
+        
+        <div class="code-block" style="margin-top: 10px; background: #1e293b;">
+            <span class="comment">// En el repositorio:</span><br>
+            <span class="keyword">public interface</span> RutaTransporteRepository <span class="keyword">extends</span> <span class="type">JpaRepository</span>&lt;<span class="type">RutaTransporte</span>, <span class="type">Long</span>&gt; {<br>
+            }  <span class="comment">// ✅ "Confirmo: el ID es Long"</span>
+        </div>
+        
+        <p style="margin-top: 20px;"><strong>¿Para qué sirve?</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li><strong>findById()</strong> sabrá que debe recibir un <code>Long</code></li>
+            <li><strong>getId()</strong> devolverá un <code>Long</code></li>
+            <li>Spring genera las consultas sabiendo que en BD el ID es <code>BIGINT</code></li>
+        </ul>
+        
+        <div style="background: #1e3a5f; padding: 15px; border-radius: 12px; margin-top: 20px;">
+            <p style="margin: 0;">
+                <i class="fas fa-arrow-right" style="color: #4299e1;"></i> 
+                <strong>Regla de oro:</strong> El tipo del ID en la entidad y en el repositorio 
+                <strong style="color: #6bc4a6;">DEBEN SER EL MISMO</strong>
+            </p>
+        </div>
+        
+        <p style="margin-top: 20px;">
+            <span class="badge">📌 Ejemplo:</span> Si tu entidad usa <code>Integer id</code>, el repositorio debe ser 
+            <code>JpaRepository&lt;RutaTransporte, Integer&gt;</code>
+        </p>
+    </div>
+</div>
+
+                    <div class="tip">
+                        <i class="fas fa-cubes" style="color: #6db33f; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #6db33f; margin-bottom: 10px;">¿Por qué está vacío?</h4>
+                        <p><strong>¡No necesita código!</strong> Spring Data JPA implementa automáticamente:</p>
+                        <ul style="margin-top: 15px; margin-left: 20px;">
+                            <li><span class="method-name">save()</span> - Guardar ruta</li>
+                            <li><span class="method-name">findById()</span> - Buscar por ID</li>
+                            <li><span class="method-name">findAll()</span> - Listar todas</li>
+                            <li><span class="method-name">delete()</span> - Eliminar</li>
+                            <li>... ¡y muchos más!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- 2. JERARQUÍA DE JpaRepository -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-sitemap"></i> 2. Jerarquía de Interfaces
+                </div>
+
+                <div class="hierarchy">
+                    <div class="hierarchy-item crud" style="border-color: #f59e0b;">
+                        <i class="fas fa-layer-group"></i> CrudRepository
+                    </div>
+                    <i class="fas fa-arrow-right" style="color: #6db33f;"></i>
+                    <div class="hierarchy-item paging" style="border-color: #4299e1;">
+                        <i class="fas fa-arrows-alt-v"></i> PagingAndSortingRepository
+                    </div>
+                    <i class="fas fa-arrow-right" style="color: #6db33f;"></i>
+                    <div class="hierarchy-item repository" style="border-color: #6db33f;">
+                        <i class="fas fa-star"></i> JpaRepository
+                    </div>
+                </div>
+
+                <div class="grid-3" style="margin-top: 30px;">
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 4px solid #f59e0b;">
+                        <h4 style="color: #f59e0b; margin-bottom: 15px;">📁 CrudRepository</h4>
+                        <p>Operaciones básicas CRUD:</p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>save()</li>
+                            <li>findById()</li>
+                            <li>existsById()</li>
+                            <li>findAll()</li>
+                            <li>count()</li>
+                            <li>delete()</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 4px solid #4299e1;">
+                        <h4 style="color: #4299e1; margin-bottom: 15px;">📊 PagingAndSortingRepository</h4>
+                        <p>Añade paginación y ordenación:</p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>findAll(Pageable pageable)</li>
+                            <li>findAll(Sort sort)</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 4px solid #6db33f;">
+                        <h4 style="color: #6db33f; margin-bottom: 15px;">🚀 JpaRepository</h4>
+                        <p>Añade funcionalidades JPA específicas:</p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>flush()</li>
+                            <li>saveAndFlush()</li>
+                            <li>deleteInBatch()</li>
+                            <li>getOne()</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="real-example" style="margin-top: 30px;">
+                    <div class="real-icon">🏗️</div>
+                    <div class="real-content">
+                        <h4>Ejemplo: La construcción de un edificio</h4>
+                        <p><strong>CrudRepository</strong> = Los cimientos (operaciones básicas).</p>
+                        <p><strong>PagingAndSortingRepository</strong> = Los pisos (organización y orden).</p>
+                        <p><strong>JpaRepository</strong> = El edificio completo con todos los servicios.</p>
+                        <p style="margin-top: 15px;">Tú solo usas el edificio (<code>JpaRepository</code>), no necesitas construir los cimientos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- 3. MÉTODOS PROPORCIONADOS POR JPA REPOSITORY -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-list"></i> 3. Métodos Listos para Usar
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <tr><th>Categoría</th><th>Método</th><th>Descripción</th></tr>
+                        <tr><td rowspan="5" style="vertical-align: top;"><strong>📝 CRUD</strong></td><td class="method-name">save(S entity)</td><td>Guarda una entidad (inserta o actualiza)</td></tr>
+                        <tr><td class="method-name">saveAll(Iterable<S> entities)</td><td>Guarda múltiples entidades</td></tr>
+                        <tr><td class="method-name">findById(ID id)</td><td>Busca por ID (devuelve Optional)</td></tr>
+                        <tr><td class="method-name">existsById(ID id)</td><td>Verifica si existe el ID</td></tr>
+                        <tr><td class="method-name">findAll()</td><td>Lista todas las entidades</td></tr>
+                        
+                        <tr><td rowspan="3" style="vertical-align: top;"><strong>🔍 Búsqueda</strong></td><td class="method-name">findAllById(Iterable<ID> ids)</td><td>Lista entidades por IDs</td></tr>
+                        <tr><td class="method-name">count()</td><td>Cuenta total de registros</td></tr>
+                        <tr><td class="method-name">getOne(ID id)</td><td>Referencia sin cargar datos (lazy)</td></tr>
+                        
+                        <tr><td rowspan="3" style="vertical-align: top;"><strong>🗑️ Eliminación</strong></td><td class="method-name">deleteById(ID id)</td><td>Elimina por ID</td></tr>
+                        <tr><td class="method-name">delete(S entity)</td><td>Elimina una entidad</td></tr>
+                        <tr><td class="method-name">deleteAll()</td><td>Elimina todas</td></tr>
+                        
+                        <tr><td rowspan="3" style="vertical-align: top;"><strong>📄 Paginación</strong></td><td class="method-name">findAll(Pageable pageable)</td><td>Lista con paginación</td></tr>
+                        <tr><td class="method-name">findAll(Sort sort)</td><td>Lista con ordenación</td></tr>
+                        <tr><td class="method-name">findAll(Example example)</td><td>Búsqueda por ejemplo</td></tr>
+                        
+                        <tr><td rowspan="2" style="vertical-align: top;"><strong>⚡ Flush</strong></td><td class="method-name">flush()</td><td>Forza sincronización con BD</td></tr>
+                        <tr><td class="method-name">saveAndFlush()</td><td>Guarda y sincroniza</td></tr>
+                    </table>
+                </div>
+
+                <div class="real-example" style="margin-top: 30px;">
+                    <div class="real-icon">🍔</div>
+                    <div class="real-content">
+                        <h4>Ejemplo: El Restaurante de Comida Rápida</h4>
+                        <p>Imagina que eres el dueño de un restaurante de hamburguesas (<code>RutaTransporte</code>):</p>
+                        <ul style="margin-top: 15px; margin-left: 20px;">
+                            <li><strong>save()</strong> = Recibir un pedido nuevo 🆕</li>
+                            <li><strong>findById()</strong> = Buscar un pedido por número de orden 🔢</li>
+                            <li><strong>findAll()</strong> = Ver todos los pedidos del día 📋</li>
+                            <li><strong>delete()</strong> = Cancelar un pedido ❌</li>
+                            <li><strong>count()</strong> = ¿Cuántos pedidos van hoy? 🧮</li>
+                        </ul>
+                        <p style="margin-top: 15px;">¡Y TODO ESTO SIN ESCRIBIR UNA SOLA LÍNEA DE SQL!</p>
+                    </div>
+                </div>
+
+                <div class="code-block crud">
+                    <span class="comment">// Ejemplo de uso en Service:</span><br>
+                    @Service<br>
+                    <span class="keyword">public class</span> RutaTransporteService {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Autowired<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> RutaTransporteRepository repository;<br><br>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// ✅ Todos estos métodos ya existen:</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> RutaTransporte guardar(RutaTransporte ruta) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> repository.save(ruta);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> Optional&lt;RutaTransporte&gt; buscarPorId(Long id) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> repository.findById(id);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                    
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> List&lt;RutaTransporte&gt; listarTodas() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> repository.findAll();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+            </div>
+
+
+            <!-- ============================================= -->
+            <!-- 5. RESUMEN - MÉTODOS PRINCIPALES -->
+            <!-- ============================================= -->
+            <div style="background: #0f172a; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-crown" style="color: #6db33f;"></i>
+                    RESUMEN - Lo que obtienes con JpaRepository
+                </h3>
+
+                <div class="methods-grid">
+                    <div class="method-card">
+                        <div class="method-signature">save(S entity)</div>
+                        <div class="method-desc">INSERT o UPDATE</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">findById(ID id)</div>
+                        <div class="method-desc">SELECT por ID</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">findAll()</div>
+                        <div class="method-desc">SELECT *</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">deleteById(ID id)</div>
+                        <div class="method-desc">DELETE por ID</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">count()</div>
+                        <div class="method-desc">SELECT COUNT(*)</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">existsById(ID id)</div>
+                        <div class="method-desc">¿Existe el ID?</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">findAll(Pageable)</div>
+                        <div class="method-desc">Paginación</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">findAll(Sort)</div>
+                        <div class="method-desc">Ordenación</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">flush()</div>
+                        <div class="method-desc">Sincronizar BD</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">saveAndFlush()</div>
+                        <div class="method-desc">Guardar y sincronizar</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">deleteAll()</div>
+                        <div class="method-desc">Borrar todo</div>
+                    </div>
+                    <div class="method-card">
+                        <div class="method-signature">getOne(ID id)</div>
+                        <div class="method-desc">Referencia lazy</div>
+                    </div>
+                </div>
+
+                <div class="tip" style="margin-top: 30px; text-align: center;">
+                    <i class="fas fa-magic" style="color: #6db33f; font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h4 style="color: white;">¡Todo esto con UNA SOLA LÍNEA DE CÓDIGO!</h4>
+                    <p style="color: #94a3b8;">public interface RutaTransporteRepository extends JpaRepository&lt;RutaTransporte, Long&gt; {}</p>
+                </div>
+            </div>
+
+            <!-- CHECKLIST FINAL -->
+            <div style="background: #1e3f2e; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-clipboard-check" style="color: #6db33f;"></i>
+                    CHECKLIST - REPOSITORIOS JPA
+                </h3>
+
+                <div class="grid-2">
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 15px;">✅ Interfaz creada extendiendo JpaRepository</li>
+                        <li style="margin-bottom: 15px;">✅ Tipo de entidad: <code>RutaTransporte</code></li>
+                        <li style="margin-bottom: 15px;">✅ Tipo de ID: <code>Long</code> (coincide con la entidad)</li>
+                        <li style="margin-bottom: 15px;">✅ Métodos CRUD disponibles sin código</li>
+                    </ul>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 15px;">✅ Métodos de paginación y ordenación</li>
+                        <li style="margin-bottom: 15px;">✅ Métodos personalizados (opcional)</li>
+                        <li style="margin-bottom: 15px;">✅ @Query para consultas complejas</li>
+                        <li style="margin-bottom: 15px;">✅ Inyección en Service con @Autowired</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div style="font-size: 3rem; margin-bottom: 15px;">
+                <i class="fas fa-leaf" style="color: #6db33f;"></i>
+                <i class="fas fa-layer-group" style="color: white; margin-left: 15px;"></i>
+            </div>
+            <h3 style="color: white; margin-bottom: 15px; font-size: 1.8rem;">JpaRepository - El Poder en tus Manos</h3>
+            <p style="max-width: 700px; margin: 0 auto; color: #cbd5e0; font-size: 1.1rem;">
+                Una interfaz vacía = +20 métodos listos para usar
+            </p>
+            <p style="margin-top: 30px; color: #94a3b8;">
+                <i class="fas fa-graduation-cap"></i> Microservicio Transporte Escolar - Módulo Rutas
+            </p>
+            <p style="margin-top: 20px; color: #6db33f;">
+                <i class="fas fa-star"></i> "Menos código, más funcionalidad"
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Service y Controller con JPA - Transporte Escolar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a2e3b 0%, #0f1a24 100%);
+            padding: 30px 20px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.5);
+            overflow: hidden;
+            border: 1px solid #4a5568;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #0b3b3f, #1a5f63);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px solid #6db33f;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .header h1 i {
+            color: #a7e0e0;
+            margin-right: 15px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .spring-badge {
+            background: #6db33f;
+            color: white;
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px -5px rgba(109,179,63,0.3);
+        }
+
+        /* CONTENIDO */
+        .content {
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* TARJETAS */
+        .card {
+            background: #2d3748;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #4a5568;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #6db33f;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .card-title i {
+            color: #6db33f;
+            font-size: 2rem;
+        }
+
+        .card-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            color: #6db33f;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 992px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CÓDIGO */
+        .code-block {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 25px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 8px solid;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .code-block.service {
+            border-left-color: #f59e0b;
+        }
+
+        .code-block.controller {
+            border-left-color: #4299e1;
+        }
+
+        .code-block.flow {
+            border-left-color: #6db33f;
+        }
+
+        .comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .keyword {
+            color: #ffb86b;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #6bc4a6;
+        }
+
+        .annotation {
+            color: #f59e0b;
+        }
+
+        .type {
+            color: #9f7aea;
+        }
+
+        /* NOTAS */
+        .note {
+            background: #1e3a5f;
+            border-left: 8px solid #4299e1;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: #7b341e;
+            border-left: 8px solid #f59e0b;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tip {
+            background: #1e3f2e;
+            border-left: 8px solid #6db33f;
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        /* BADGES */
+        .badge {
+            display: inline-block;
+            background: #2d3748;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+            margin-right: 10px;
+        }
+
+        /* FLOW VISUAL */
+        .flow-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #0f172a;
+            border-radius: 50px;
+        }
+
+        .flow-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 120px;
+        }
+
+        .flow-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+
+        .flow-icon.client {
+            background: #4299e1;
+        }
+        .flow-icon.controller {
+            background: #f59e0b;
+        }
+        .flow-icon.service {
+            background: #6db33f;
+        }
+        .flow-icon.repository {
+            background: #9f7aea;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: #6db33f;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 4px solid #6db33f;
+        }
+
+        .footer i {
+            color: #6db33f;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 2px dashed #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>
+                <i class="fas fa-layer-group"></i> Service + Controller con JPA
+            </h1>
+            <p>Microservicio Transporte Escolar - Tercera Parte</p>
+            <div class="spring-badge">
+                <i class="fas fa-leaf"></i> Spring Boot + JPA
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+            
+            <!-- ============================================= -->
+            <!-- 1. SERVICE - CAPA DE NEGOCIO -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-cogs"></i> 1. Service - RutaTransporteService
+                </div>
+
+                <div class="real-example" style="background: #1e3f2e; border-left: 8px solid #6db33f; border-radius: 16px; padding: 20px; margin-bottom: 25px;">
+                    <p style="font-size: 1.1rem;">
+                        <i class="fas fa-info-circle" style="color: #6db33f;"></i> 
+                        El <strong>Service</strong> es la capa que contiene la <strong>lógica de negocio</strong>. Actúa como intermediario entre el Controller y el Repository.
+                    </p>
+                </div>
+
+                <div class="code-block service">
+                    <span class="annotation">@Service</span><br>
+                    <span class="annotation">@Transactional</span><br>
+                    <span class="keyword">public class</span> <span class="type">RutaTransporteService</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="type">RutaTransporteRepository</span> rutaTransporteRepository;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> List&lt;<span class="type">RutaTransporte</span>&gt; <span class="function">findAll</span>(){<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> rutaTransporteRepository.findAll();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+                    <div class="note">
+                        <i class="fas fa-tag" style="color: #4299e1; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #4299e1; margin-bottom: 10px;">@Service</h4>
+                        <p>Marca la clase como un <strong>bean de servicio</strong> de Spring. Indica que aquí va la lógica de negocio.</p>
+                        <div class="code-block" style="margin-top: 15px; background: #1e293b;">
+                            <span class="comment">// Spring la detecta automáticamente</span><br>
+                            <span class="comment">// Puede ser inyectada con @Autowired</span>
+                        </div>
+                    </div>
+
+                    <div class="note">
+                        <i class="fas fa-database" style="color: #9f7aea; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #9f7aea; margin-bottom: 10px;">@Transactional</h4>
+                        <p>Garantiza que todo el método se ejecute dentro de una <strong>transacción de base de datos</strong>.</p>
+                        <div class="code-block" style="margin-top: 15px; background: #1e293b;">
+                            <span class="comment">// Si algo falla, hace ROLLBACK</span><br>
+                            <span class="comment">// Si funciona, hace COMMIT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip" style="margin-top: 25px;">
+                    <i class="fas fa-lightbulb" style="color: #6db33f; margin-right: 10px;"></i>
+                    <strong>¿Qué hace este Service?</strong>
+                    <ul style="margin-top: 15px; margin-left: 30px;">
+                        <li><strong>findAll()</strong> → Llama al repositorio para obtener <strong>TODAS</strong> las rutas</li>
+                        <li>No tiene lógica compleja aún (solo delega)</li>
+                        <li>Preparado para agregar validaciones, cálculos, reglas de negocio</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- 2. CONTROLLER - CAPA DE PRESENTACIÓN -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-globe"></i> 2. Controller - RutaTransporteController
+                </div>
+
+                <div class="real-example" style="background: #1e3f2e; border-left: 8px solid #6db33f; border-radius: 16px; padding: 20px; margin-bottom: 25px;">
+                    <p style="font-size: 1.1rem;">
+                        <i class="fas fa-info-circle" style="color: #6db33f;"></i> 
+                        El <strong>Controller</strong> es la capa que <strong>recibe las peticiones HTTP</strong> y <strong>devuelve respuestas</strong> (generalmente JSON).
+                    </p>
+                </div>
+
+                <div class="code-block controller">
+                    <span class="annotation">@RestController</span><br>
+                    <span class="annotation">@RequestMapping</span>(<span class="string">"api/v1/rutatransporte"</span>)<br>
+                    <span class="keyword">public class</span> <span class="type">RutaTransporteController</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="type">RutaTransporteService</span> rutaTransporteService;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> ResponseEntity&lt;List&lt;<span class="type">RutaTransporte</span>&gt;&gt; <span class="function">listar</span>(){<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;<span class="type">RutaTransporte</span>&gt; rutas = rutaTransporteService.findAll();<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> ResponseEntity.ok(rutas);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+                    <div class="note">
+                        <i class="fas fa-tag" style="color: #f59e0b; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #f59e0b; margin-bottom: 10px;">@RestController</h4>
+                        <p>Combina <code>@Controller</code> + <code>@ResponseBody</code>. Todos los métodos devuelven JSON automáticamente.</p>
+                    </div>
+
+                    <div class="note">
+                        <i class="fas fa-map-signs" style="color: #4299e1; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #4299e1; margin-bottom: 10px;">@RequestMapping</h4>
+                        <p>Define la <strong>ruta base</strong> para todos los endpoints del controlador.</p>
+                        <div class="code-block" style="margin-top: 10px; background: #1e293b;">
+                            <span class="comment">// Base: /api/v1/rutatransporte</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+                    <div class="note">
+                        <i class="fas fa-plug" style="color: #6db33f; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #6db33f; margin-bottom: 10px;">@GetMapping</h4>
+                        <p>Mapea peticiones <strong>HTTP GET</strong> a este método.</p>
+                        <div class="code-block" style="margin-top: 10px; background: #1e293b;">
+                            <span class="comment">// GET /api/v1/rutatransporte</span>
+                        </div>
+                    </div>
+
+                    <div class="note">
+                        <i class="fas fa-envelope-open" style="color: #9f7aea; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #9f7aea; margin-bottom: 10px;">ResponseEntity</h4>
+                        <p>Permite controlar la <strong>respuesta HTTP</strong> completa (cuerpo, código de estado, headers).</p>
+                        <div class="code-block" style="margin-top: 10px; background: #1e293b;">
+                            ResponseEntity.ok(rutas) <span class="comment">// → 200 OK con JSON</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip" style="margin-top: 25px;">
+                    <i class="fas fa-arrow-right" style="color: #6db33f;"></i>
+                    <strong>Flujo de esta petición:</strong>
+                    <div style="background: #0f172a; padding: 20px; border-radius: 12px; margin-top: 15px;">
+                        <code>GET /api/v1/rutatransporte</code> 
+                        <i class="fas fa-arrow-right" style="color: #6db33f; margin: 0 10px;"></i> 
+                        Controller <i class="fas fa-arrow-right" style="color: #6db33f; margin: 0 10px;"></i> 
+                        Service <i class="fas fa-arrow-right" style="color: #6db33f; margin: 0 10px;"></i> 
+                        Repository <i class="fas fa-arrow-right" style="color: #6db33f; margin: 0 10px;"></i> 
+                        BD <i class="fas fa-arrow-right" style="color: #6db33f; margin: 0 10px;"></i> 
+                        JSON
+                    </div>
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- 3. FLUJO COMPLETO -->
+            <!-- ============================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-project-diagram"></i> 3. Flujo Completo de una Petición
+                </div>
+
+                <div class="flow-visual">
+                    <div class="flow-item">
+                        <div class="flow-icon client">
+                            <i class="fas fa-user" style="color: white;"></i>
+                        </div>
+                        <span>Cliente</span>
+                        <small style="color: #94a3b8;">Postman/Navegador</small>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon controller">
+                            <i class="fas fa-globe" style="color: white;"></i>
+                        </div>
+                        <span>Controller</span>
+                        <small style="color: #94a3b8;">@RestController</small>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon service">
+                            <i class="fas fa-cogs" style="color: white;"></i>
+                        </div>
+                        <span>Service</span>
+                        <small style="color: #94a3b8;">@Service</small>
+                    </div>
+                    <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flow-item">
+                        <div class="flow-icon repository">
+                            <i class="fas fa-database" style="color: white;"></i>
+                        </div>
+                        <span>Repository</span>
+                        <small style="color: #94a3b8;">JpaRepository</small>
+                    </div>
+                </div>
+
+                <div class="code-block flow" style="margin-top: 30px;">
+                    <span class="comment">// 1. Cliente hace: GET http://localhost:8080/api/v1/rutatransporte</span><br>
+                    <span class="comment">// 2. Controller recibe la petición</span><br>
+                    <span class="comment">// 3. Controller llama a Service.findAll()</span><br>
+                    <span class="comment">// 4. Service llama a Repository.findAll()</span><br>
+                    <span class="comment">// 5. Repository ejecuta: SELECT * FROM rutas_transporte</span><br>
+                    <span class="comment">// 6. Los datos viajan de vuelta: Repository → Service → Controller</span><br>
+                    <span class="comment">// 7. Controller devuelve JSON con código 200 OK</span><br><br>
+                    
+                    <span class="type">Respuesta JSON:</span> [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{ <span class="string">"id"</span>: 1, <span class="string">"codigoRuta"</span>: <span class="string">"RUT-001"</span>, <span class="string">"nombreRuta"</span>: <span class="string">"Ruta Las Condes"</span> },<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{ <span class="string">"id"</span>: 2, <span class="string">"codigoRuta"</span>: <span class="string">"RUT-002"</span>, <span class="string">"nombreRuta"</span>: <span class="string">"Ruta Maipú"</span> }<br>
+                    ]
+                </div>
+            </div>
+
+            <!-- ============================================= -->
+            <!-- 4. RESUMEN - ARQUITECTURA EN CAPAS -->
+            <!-- ============================================= -->
+            <div style="background: #0f172a; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-layer-group" style="color: #6db33f;"></i>
+                    RESUMEN - ARQUITECTURA EN CAPAS
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 5px solid #4299e1;">
+                        <h4 style="color: #4299e1; margin-bottom: 15px;">🌐 CONTROLLER</h4>
+                        <p><strong>RutaTransporteController</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>Recibe peticiones HTTP</li>
+                            <li>Devuelve JSON</li>
+                            <li>Responde en /api/v1/rutatransporte</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 5px solid #f59e0b;">
+                        <h4 style="color: #f59e0b; margin-bottom: 15px;">⚙️ SERVICE</h4>
+                        <p><strong>RutaTransporteService</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>Lógica de negocio</li>
+                            <li>@Transactional</li>
+                            <li>Delega al Repository</li>
+                        </ul>
+                    </div>
+
+                    <div style="background: #1e293b; padding: 20px; border-radius: 16px; border-top: 5px solid #6db33f;">
+                        <h4 style="color: #6db33f; margin-bottom: 15px;">🗄️ REPOSITORY</h4>
+                        <p><strong>RutaTransporteRepository</strong></p>
+                        <ul style="margin-left: 20px; font-size: 0.9rem;">
+                            <li>Acceso a datos</li>
+                            <li>Extiende JpaRepository</li>
+                            <li>Ejecuta consultas SQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip" style="margin-top: 30px; text-align: center;">
+                    <i class="fas fa-check-circle" style="color: #6db33f; font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h4 style="color: white;">✅ API funcionando en: <code style="background: #1e293b; padding: 5px 15px; border-radius: 50px;">GET http://localhost:8080/api/v1/rutatransporte</code></h4>
+                </div>
+            </div>
+
+            <!-- CHECKLIST FINAL -->
+            <div style="background: #1e3f2e; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-clipboard-check" style="color: #6db33f;"></i>
+                    CHECKLIST - CAPAS IMPLEMENTADAS
+                </h3>
+
+                <div class="grid-2">
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 15px;">✅ <strong>Repository:</strong> JpaRepository&lt;RutaTransporte, Long&gt;</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Service:</strong> @Service + @Transactional</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Controller:</strong> @RestController + @RequestMapping</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Endpoint GET:</strong> /api/v1/rutatransporte</li>
+                    </ul>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 15px;">✅ <strong>Inyección:</strong> @Autowired en Service y Controller</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Respuesta:</strong> ResponseEntity con 200 OK</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Formato:</strong> JSON automático</li>
+                        <li style="margin-bottom: 15px;">✅ <strong>Transacciones:</strong> Gestionadas por Spring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div style="font-size: 3rem; margin-bottom: 15px;">
+                <i class="fas fa-leaf" style="color: #6db33f;"></i>
+                <i class="fas fa-layer-group" style="color: white; margin-left: 15px;"></i>
+            </div>
+            <h3 style="color: white; margin-bottom: 15px; font-size: 1.8rem;">Service + Controller + Repository</h3>
+            <p style="max-width: 700px; margin: 0 auto; color: #cbd5e0; font-size: 1.1rem;">
+                Las 3 capas trabajando juntas: Controller recibe, Service procesa, Repository consulta
+            </p>
+            <p style="margin-top: 30px; color: #94a3b8;">
+                <i class="fas fa-graduation-cap"></i> Microservicio Transporte Escolar - Módulo Rutas
+            </p>
+            <p style="margin-top: 20px; color: #6db33f;">
+                <i class="fas fa-star"></i> "Separación de responsabilidades = Código mantenible"
+            </p>
+        </div>
+    </div>
+</body>
+</html>

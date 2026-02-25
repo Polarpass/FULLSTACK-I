@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: JPA y Base de Datos - Transporte Escolar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a2e3b 0%, #0f1a24 100%);
+            padding: 30px 20px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #1e293b;
+            border-radius: 40px;
+            box-shadow: 0 30px 60px -15px rgba(0,0,0,0.5);
+            overflow: hidden;
+            border: 1px solid #4a5568;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #0b3b3f, #1a5f63);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px solid #6db33f;
+        }
+
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .header h1 i {
+            color: #a7e0e0;
+            margin-right: 15px;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .spring-badge {
+            background: #6db33f;
+            color: white;
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px -5px rgba(109,179,63,0.3);
+        }
+
+        /* CONTENIDO */
+        .content {
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* HOJA DE RUTA */
+        .roadmap {
+            background: #0f2a2c;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 2px solid #6db33f;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .roadmap-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #6db33f;
+            color: #0f2a2c;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            box-shadow: 0 0 20px #6db33f;
+        }
+
+        .step-text {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .step-arrow {
+            font-size: 2rem;
+            color: #6db33f;
+            align-self: center;
+        }
+
+        /* TARJETAS */
+        .card {
+            background: #2d3748;
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #4a5568;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #6db33f;
+            padding-bottom: 15px;
+            color: white;
+        }
+
+        .card-title i {
+            color: #6db33f;
+            font-size: 2rem;
+        }
+
+        /* GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        @media (max-width: 992px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CÓDIGO */
+        .code-block {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 20px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 8px solid #6db33f;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.3);
+        }
+
+        .code-block.sql {
+            border-left-color: #f59e0b;
+        }
+
+        .code-block.properties {
+            border-left-color: #4299e1;
+        }
+
+        .comment {
+            color: #94a3b8;
+            font-style: italic;
+        }
+
+        .keyword {
+            color: #ffb86b;
+        }
+
+        .string {
+            color: #6bc4a6;
+        }
+
+        .annotation {
+            color: #f59e0b;
+        }
+
+        /* TABLAS */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            color: #e2e8f0;
+        }
+
+        th {
+            background: #0f172a;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #6db33f;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        tr:hover td {
+            background: #334155;
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            margin-bottom: 12px;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .checklist li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            color: #6db33f;
+        }
+
+        /* ADVERTENCIAS */
+        .warning {
+            background: #7b341e;
+            border-left: 8px solid #f59e0b;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .tip {
+            background: #1e3a5f;
+            border-left: 8px solid #4299e1;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .success {
+            background: #1e3f2e;
+            border-left: 8px solid #6db33f;
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-top: 4px solid #6db33f;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2d3748;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: #e2e8f0;
+            border: 1px solid #4a5568;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 2px dashed #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>
+                <i class="fas fa-database"></i> JPA + MySQL
+            </h1>
+            <p>Microservicio Transporte Escolar - Primera Parte</p>
+            <div class="spring-badge">
+                <i class="fas fa-leaf"></i> Spring Boot + JPA
+            </div>
+        </div>
+
+        <!-- CONTENIDO -->
+        <div class="content">
+            
+            <!-- HOJA DE RUTA -->
+            <div class="roadmap">
+                <div class="roadmap-step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Crear Tabla en MySQL</div>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="roadmap-step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Probar Conexión en MAIN</div>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="roadmap-step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Configurar application.properties</div>
+                </div>
+                <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+                <div class="roadmap-step">
+                    <div class="step-number">4</div>
+                    <div class="step-text">Crear Entidad JPA</div>
+                </div>
+            </div>
+
+            <!-- ========================================= -->
+            <!-- 1. CREACIÓN DE LA TABLA -->
+            <!-- ========================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-table"></i> 1. Creación de la Tabla en MySQL
+                </div>
+
+                <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                    <span class="badge">📌 Tabla:</span> <strong>rutas_transporte</strong> 
+                    <span class="badge" style="margin-left: 10px;">📍 Base de datos: transporte_escolar_db</span>
+                </p>
+
+                <div class="code-block sql">
+                    <div class="comment">-- =============================================</div>
+                    <div class="comment">-- CREAR BASE DE DATOS (si no existe)</div>
+                    <div class="comment">-- =============================================</div>
+                    <div class="keyword">CREATE DATABASE IF NOT EXISTS</div> transporte_escolar_db;<br>
+                    <div class="keyword">USE</div> transporte_escolar_db;<br><br>
+
+                    <div class="comment">-- =============================================</div>
+                    <div class="comment">-- TABLA rutas_transporte</div>
+                    <div class="comment">-- =============================================</div>
+                    <div class="keyword">CREATE TABLE</div> rutas_transporte (<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;id <span class="keyword">INT AUTO_INCREMENT PRIMARY KEY</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;codigo_ruta <span class="keyword">VARCHAR(20) NOT NULL UNIQUE</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;nombre_ruta <span class="keyword">VARCHAR(100) NOT NULL</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;descripcion <span class="keyword">VARCHAR(100)</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;hora_salida <span class="keyword">TIME NOT NULL</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;hora_llegada <span class="keyword">TIME NOT NULL</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;activo <span class="keyword">BOOLEAN DEFAULT TRUE</span><br>
+                    );
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <tr><th>Campo</th><th>Tipo</th><th>Descripción</th><th>Restricciones</th></tr>
+                        <tr><td>id</td><td>INT</td><td>Identificador único</td><td>AUTO_INCREMENT, PRIMARY KEY</td></tr>
+                        <tr><td>codigo_ruta</td><td>VARCHAR(20)</td><td>Código único de la ruta</td><td>NOT NULL, UNIQUE</td></tr>
+                        <tr><td>nombre_ruta</td><td>VARCHAR(100)</td><td>Nombre descriptivo</td><td>NOT NULL</td></tr>
+                        <tr><td>descripcion</td><td>VARCHAR(100)</td><td>Descripción opcional</td><td>-</td></tr>
+                        <tr><td>hora_salida</td><td>TIME</td><td>Hora de inicio</td><td>NOT NULL</td></tr>
+                        <tr><td>hora_llegada</td><td>TIME</td><td>Hora de término</td><td>NOT NULL</td></tr>
+                        <tr><td>activo</td><td>BOOLEAN</td><td>Estado de la ruta</td><td>DEFAULT TRUE</td></tr>
+                    </table>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb" style="color: #4299e1; margin-right: 10px;"></i>
+                    <strong>Datos de ejemplo para insertar:</strong>
+                    <div class="code-block sql" style="margin-top: 15px;">
+                        <div class="keyword">INSERT INTO</div> rutas_transporte <br>
+                        (codigo_ruta, nombre_ruta, descripcion, hora_salida, hora_llegada, activo) <br>
+                        <div class="keyword">VALUES</div><br>
+                        ('RUT-001', 'Ruta Las Condes', 'Sector oriente', '07:00:00', '08:30:00', true),<br>
+                        ('RUT-002', 'Ruta Maipú', 'Sector poniente', '06:30:00', '08:00:00', true),<br>
+                        ('RUT-003', 'Ruta Express Centro', 'Ruta directa', '07:30:00', '08:15:00', false);
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================= -->
+            <!-- 2. PRUEBA DE CONEXIÓN EN MAIN -->
+            <!-- ========================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-plug"></i> 2. Prueba de Conexión en MAIN
+                </div>
+
+                <div class="code-block">
+
+    <span class="keyword">public class</span> TransporteServiceApplication {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private static final</span> String URL = <span class="string">"jdbc:mysql://localhost:3306/transporte_escolar_db"</span>;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private static final</span> String USUARIO = <span class="string">"root"</span>;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private static final</span> String CONTRASENA = <span class="string">"12345"</span>;<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//public static void main(String[] args) {</span><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> main(String[] args) <span class="keyword">throws</span> SQLException {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// SpringApplication.run(TransporteServiceApplication.class, args);</span><br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Connection conexion = <span class="keyword">null</span>;<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conexion = DriverManager.getConnection(URL, USUARIO, CONTRASENA);<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Statement stmt = conexion.createStatement();<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ResultSet rs = stmt.executeQuery(<span class="string">"SELECT * FROM rutas_transporte"</span>);<br><br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">while</span> (rs.next()) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(rs.getInt(<span class="string">"id"</span>));<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(rs.getString(<span class="string">"codigo_ruta"</span>));<br>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+    }
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-check-circle" style="color: #6db33f; margin-right: 10px;"></i>
+                    <strong>Resultado esperado:</strong> Ver los IDs y códigos de las rutas insertadas.
+                </div>
+            </div>
+
+            <!-- ========================================= -->
+            <!-- 3. CONFIGURACIÓN APPLICATION.PROPERTIES -->
+            <!-- ========================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-cog"></i> 3. Configuración application.properties
+                </div>
+
+                <div class="code-block properties">
+                    <span class="comment"># =============================================</span><br>
+                    <span class="comment"># CONEXIÓN A BASE DE DATOS MYSQL</span><br>
+                    <span class="comment"># =============================================</span><br><br>
+
+                    <span class="comment"># URL de conexión</span><br>
+                    <span class="keyword">spring.datasource.url</span>=jdbc:mysql://localhost:3306/transporte_escolar_db<br>
+                    <span class="comment">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└────┬────┘ └────┬───┘ └─┬─┘└─────────┬──────────┘</span><br>
+                    <span class="comment">#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Driver MySQL     localhost:3306    Nombre BD</span><br><br>
+
+                    <span class="comment"># Credenciales de acceso</span><br>
+                    <span class="keyword">spring.datasource.username</span>=root<br>
+                    <span class="keyword">spring.datasource.password</span>=12345<br><br>
+
+                    <span class="comment"># =============================================</span><br>
+                    <span class="comment"># CONFIGURACIÓN DE JPA / HIBERNATE</span><br>
+                    <span class="comment"># =============================================</span><br><br>
+
+                    <span class="comment"># ESTRATEGIA DDL: Cómo manejar las tablas</span><br>
+                    <span class="keyword">spring.jpa.hibernate.ddl-auto</span>=update<br>
+                    <span class="comment">#   • none      : No toca la BD (producción)</span><br>
+                    <span class="comment">#   • validate  : Valida que las tablas coincidan</span><br>
+                    <span class="comment">#   • update    : Actualiza tablas (crea si no existen)</span><br>
+                    <span class="comment">#   • create    : Borra y crea cada vez</span><br><br>
+
+                    <span class="comment"># MOSTRAR SQL GENERADO</span><br>
+                    <span class="keyword">spring.jpa.show-sql</span>=true<br><br>
+
+                    <span class="comment"># FORMATEAR SQL (más legible)</span><br>
+                    <span class="keyword">spring.jpa.properties.hibernate.format_sql</span>=true<br>
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Propiedad</th><th>Significado</th></tr>
+                            <tr><td>spring.datasource.url</td><td>Ubicación de la BD</td></tr>
+                            <tr><td>spring.datasource.username</td><td>Usuario MySQL</td></tr>
+                            <tr><td>spring.datasource.password</td><td>Contraseña</td></tr>
+                            <tr><td>spring.jpa.hibernate.ddl-auto</td><td>Estrategia DDL</td></tr>
+                            <tr><td>spring.jpa.show-sql</td><td>Mostrar SQL</td></tr>
+                            <tr><td>spring.jpa.properties.hibernate.format_sql</td><td>Formatear SQL</td></tr>
+                        </table>
+                    </div>
+
+                    <div class="warning">
+                        <i class="fas fa-exclamation-circle" style="color: #f59e0b; font-size: 1.5rem; margin-bottom: 10px; display: block;"></i>
+                        <h4 style="color: #f59e0b; margin-bottom: 10px;">⚠️ ¡CUIDADO con ddl-auto!</h4>
+                        <ul style="margin-left: 20px;">
+                            <li><strong>Desarrollo:</strong> update (ok)</li>
+                            <li><strong>Pruebas:</strong> validate</li>
+                            <li><strong>Producción:</strong> validate o none</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================= -->
+            <!-- 4. ENTIDAD JPA -->
+            <!-- ========================================= -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-code"></i> 4. Entidad JPA - RutaTransporte.java
+                </div>
+
+                <div class="success" style="margin-bottom: 25px;">
+                    <i class="fas fa-info-circle" style="color: #6db33f; margin-right: 10px;"></i>
+                    <strong>IMPORTANTE:</strong> La tabla <code>rutas_transporte</code> YA EXISTE. JPA no la creará, solo la usará.
+                </div>
+
+                <div class="code-block">
+                    <div class="keyword">package</div> com.edumanage.transporte_service.model;<br><br>
+
+                    <div class="keyword">import</div> lombok.AllArgsConstructor;<br>
+                    <div class="keyword">import</div> lombok.Data;<br>
+                    <div class="keyword">import</div> lombok.NoArgsConstructor;<br>
+                    <div class="keyword">import</div> javax.persistence.*;<br>
+                    <div class="keyword">import</div> java.time.LocalTime;<br><br>
+
+                    @Data                    <span class="comment">// Getters, setters, toString</span><br>
+                    @NoArgsConstructor       <span class="comment">// Constructor vacío</span><br>
+                    @AllArgsConstructor      <span class="comment">// Constructor con todos los campos</span><br><br>
+
+                    @Entity                  <span class="comment">// Marca la clase como entidad JPA</span><br>
+                    @Table(name = <span class="string">"rutas_transporte"</span>)  <span class="comment">// Vincula con la tabla existente</span><br>
+                    <span class="keyword">public class</span> RutaTransporte {<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Id  <span class="comment">// Llave primaria</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;@GeneratedValue(strategy = GenerationType.IDENTITY)  <span class="comment">// AUTO_INCREMENT</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> Integer id;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = <span class="string">"codigo_ruta"</span>)  <span class="comment">// La columna en BD se llama "codigo_ruta"</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> String codigoRuta;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = <span class="string">"nombre_ruta"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> String nombreRuta;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> String descripcion;  <span class="comment">// Si coincide, @Column es opcional</span><br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = <span class="string">"hora_salida"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> LocalTime horaSalida;  <span class="comment">// TIME en BD → LocalTime en Java</span><br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;@Column(name = <span class="string">"hora_llegada"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> LocalTime horaLlegada;<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> Boolean activo = <span class="keyword">true</span>;  <span class="comment">// Valor por defecto</span><br>
+                    }
+                </div>
+
+                <div class="grid-2" style="margin-top: 25px;">
+                    <div>
+                        <h4 style="color: #6db33f; margin-bottom: 15px;">🔤 Mapeo Java ↔ BD</h4>
+                        <table>
+                            <tr><th>Java (camelCase)</th><th>BD (snake_case)</th></tr>
+                            <tr><td>codigoRuta</td><td>codigo_ruta</td></tr>
+                            <tr><td>nombreRuta</td><td>nombre_ruta</td></tr>
+                            <tr><td>horaSalida</td><td>hora_salida</td></tr>
+                            <tr><td>horaLlegada</td><td>hora_llegada</td></tr>
+                            <tr><td>activo</td><td>activo</td></tr>
+                        </table>
+                    </div>
+
+                    <div>
+                        <h4 style="color: #6db33f; margin-bottom: 15px;">📌 Anotaciones JPA</h4>
+                        <table>
+                            <tr><th>Anotación</th><th>Significado</th></tr>
+                            <tr><td>@Entity</td><td>Clase = tabla</td></tr>
+                            <tr><td>@Table(name = "...")</td><td>Nombre de la tabla</td></tr>
+                            <tr><td>@Id</td><td>Llave primaria</td></tr>
+                            <tr><td>@GeneratedValue</td><td>Cómo se genera ID</td></tr>
+                            <tr><td>@Column</td><td>Mapeo campo - columna</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ========================================= -->
+            <!-- RESUMEN VISUAL -->
+            <!-- ========================================= -->
+            <div style="background: #0f172a; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-diagram-project" style="color: #6db33f;"></i> 
+                    RESUMEN VISUAL DEL PROCESO
+                </h3>
+
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 20px;">
+                    <div style="text-align: center; min-width: 150px;">
+                        <div style="background: #1e293b; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 3px solid #4299e1;">
+                            <i class="fas fa-table" style="font-size: 2rem; color: #4299e1;"></i>
+                        </div>
+                        <h4 style="color: #4299e1;">1. CREATE TABLE</h4>
+                        <p style="color: #94a3b8;">Tabla en MySQL</p>
+                    </div>
+                    <div style="font-size: 2rem; color: #6db33f;"><i class="fas fa-arrow-right"></i></div>
+                    <div style="text-align: center; min-width: 150px;">
+                        <div style="background: #1e293b; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 3px solid #f59e0b;">
+                            <i class="fas fa-plug" style="font-size: 2rem; color: #f59e0b;"></i>
+                        </div>
+                        <h4 style="color: #f59e0b;">2. Probar MAIN</h4>
+                        <p style="color: #94a3b8;">Conexión JDBC</p>
+                    </div>
+                    <div style="font-size: 2rem; color: #6db33f;"><i class="fas fa-arrow-right"></i></div>
+                    <div style="text-align: center; min-width: 150px;">
+                        <div style="background: #1e293b; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 3px solid #6db33f;">
+                            <i class="fas fa-cog" style="font-size: 2rem; color: #6db33f;"></i>
+                        </div>
+                        <h4 style="color: #6db33f;">3. application.properties</h4>
+                        <p style="color: #94a3b8;">Configurar JPA</p>
+                    </div>
+                    <div style="font-size: 2rem; color: #6db33f;"><i class="fas fa-arrow-right"></i></div>
+                    <div style="text-align: center; min-width: 150px;">
+                        <div style="background: #1e293b; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; border: 3px solid #9f7aea;">
+                            <i class="fas fa-code" style="font-size: 2rem; color: #9f7aea;"></i>
+                        </div>
+                        <h4 style="color: #9f7aea;">4. Entidad JPA</h4>
+                        <p style="color: #94a3b8;">@Entity RutaTransporte</p>
+                    </div>
+                </div>
+
+                <div class="success" style="margin-top: 30px; text-align: center;">
+                    <i class="fas fa-check-circle" style="color: #6db33f; font-size: 2rem; margin-bottom: 10px; display: block;"></i>
+                    <h4 style="color: white;">¡Todo listo! Hibernate observa la tabla y la usa</h4>
+                    <p style="color: #94a3b8;">La tabla ya existe → JPA no la crea, solo la valida y trabaja con ella</p>
+                </div>
+            </div>
+
+            <!-- CHECKLIST FINAL -->
+            <div style="background: #1e3f2e; border-radius: 30px; padding: 30px; margin-top: 30px;">
+                <h3 style="color: white; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-clipboard-check" style="color: #6db33f;"></i>
+                    CHECKLIST - LO QUE DEBES TENER FUNCIONANDO
+                </h3>
+
+                <div class="grid-2">
+                    <ul class="checklist">
+                        <li>Base de datos <strong>transporte_escolar_db</strong> creada</li>
+                        <li>Tabla <strong>rutas_transporte</strong> creada con SQL</li>
+                        <li>Datos insertados (al menos 3 rutas)</li>
+                        <li>Dependencia MySQL en <strong>pom.xml</strong></li>
+                        <li>Prueba de conexión en MAIN funciona</li>
+                    </ul>
+                    <ul class="checklist">
+                        <li><strong>application.properties</strong> configurado</li>
+                        <li>Usuario y contraseña correctos</li>
+                        <li><strong>ddl-auto=update</strong> configurado</li>
+                        <li>Entidad <strong>RutaTransporte</strong> creada</li>
+                        <li>Anotaciones JPA (@Entity, @Id, @Column)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <div style="font-size: 3rem; margin-bottom: 15px;">
+                <i class="fas fa-leaf" style="color: #6db33f;"></i>
+                <i class="fas fa-database" style="color: white; margin-left: 15px;"></i>
+            </div>
+            <h3 style="color: white; margin-bottom: 15px; font-size: 1.8rem;">JPA + MySQL - Microservicio Transporte Escolar</h3>
+            <p style="max-width: 700px; margin: 0 auto; color: #cbd5e0; font-size: 1.1rem;">
+                Primera parte: Creación de tabla, prueba de conexión, configuración JPA y entidad
+            </p>
+            <p style="margin-top: 30px; color: #94a3b8;">
+                <i class="fas fa-graduation-cap"></i> Material educativo para estudiantes - Spring Boot JPA
+            </p>
+            <p style="margin-top: 20px; color: #6db33f;">
+                <i class="fas fa-star"></i> "La tabla ya existe, JPA solo la usa"
+            </p>
+        </div>
+    </div>
+</body>
+</html>
